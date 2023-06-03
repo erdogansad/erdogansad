@@ -2,21 +2,23 @@ import React, { lazy } from "react";
 import routes from "./routes/";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-const LazyHeader = lazy(() => import("@layouts/Header"));
 const LazyFooter = lazy(() => import("@layouts/Footer"));
 
 export const Router = () => {
   const RenderRoute = ({ route }) => {
     if (route.layout === "default") {
       return (
-        <>
-          <LazyHeader />
+        <div>
           <route.component />
           <LazyFooter />
-        </>
+        </div>
       );
     } else if (route.layout === "blank") {
-      return <route.component />;
+      return (
+        <div>
+          <route.component />
+        </div>
+      );
     }
   };
 
