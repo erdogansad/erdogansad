@@ -9,7 +9,7 @@ module.exports = {
       "@components": path.resolve(__dirname, "src/components"),
       "@layouts": path.resolve(__dirname, "src/layouts"),
       "@pages": path.resolve(__dirname, "src/pages"),
-      "@utils": path.resolve(__dirname, "src/utils"),
+      "@slices": path.resolve(__dirname, "src/redux/slices"),
     },
   },
 };
