@@ -1,12 +1,26 @@
-import React, { lazy, useContext } from "react";
+import React, { lazy, useEffect } from "react";
 import routes from "./routes/";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData, fetchLang, fetchTheme } from "../redux/slices/coreSlice";
 
 const LazyFooter = lazy(() => import("@layouts/Footer"));
 
 export const Router = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme, lang } = useSelector((store) => store.core);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTheme());
+    dispatch(fetchLang());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (lang !== "") {
+      dispatch(fetchData());
+    }
+  }, [dispatch, lang]);
+
   const RenderRoute = ({ route }) => {
     if (route.layout === "default") {
       return (
@@ -17,7 +31,7 @@ export const Router = () => {
       );
     } else if (route.layout === "blank") {
       return (
-        <div>
+        <div className={theme}>
           <route.component />
         </div>
       );
