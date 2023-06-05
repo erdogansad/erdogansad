@@ -1,268 +1,266 @@
-[
-  {
-    "en": {
-      "langText": "TÜRKÇE'YE GEÇ",
-      "darkText": "DARK MODE",
-      "lightText": "LIGHT MODE",
-      "title": "I am a Frontend Developer...",
-      "subTitle": "...who likes to craft and scalable frontend products with great user experiences.",
-      "titleImg": "https://loremflickr.com/600/550",
-      "buttons": [
+{
+  "en": {
+    "langText": "TÜRKÇE'YE GEÇ",
+    "darkText": "DARK MODE",
+    "lightText": "LIGHT MODE",
+    "title": "I am a Frontend Developer...",
+    "subTitle": "...who likes to craft and scalable frontend products with great user experiences.",
+    "titleImg": "https://loremflickr.com/600/550",
+    "buttons": [
+      {
+        "name": "Github",
+        "url": "url",
+        "icon": "fa-brands fa-github"
+      },
+      {
+        "name": "Linkedin",
+        "url": "url",
+        "icon": "fa-brands fa-linkedin-in"
+      }
+    ],
+    "skills": {
+      "title": "Skills",
+      "list": [
         {
-          "name": "Github",
-          "url": "url",
-          "icon": "fa-brands fa-github"
+          "name": "JAVASCRIPT",
+          "img": "javascript.webp"
         },
         {
-          "name": "Linkedin",
-          "url": "url",
-          "icon": "fa-brands fa-linkedin-in"
+          "name": "REACT",
+          "img": "react.webp"
+        },
+        {
+          "name": "REDUX",
+          "img": "redux.webp"
+        },
+        {
+          "name": "NODE",
+          "img": "node.webp"
+        },
+        {
+          "name": "VS CODE",
+          "img": "vscode.webp"
+        },
+        {
+          "name": "TAILWIND",
+          "img": "tailwind.webp"
         }
-      ],
-      "skills": {
-        "title": "Skills",
-        "list": [
-          {
-            "name": "JAVASCRIPT",
-            "img": "javascript.webp"
-          },
-          {
-            "name": "REACT",
-            "img": "react.webp"
-          },
-          {
-            "name": "REDUX",
-            "img": "redux.webp"
-          },
-          {
-            "name": "NODE",
-            "img": "node.webp"
-          },
-          {
-            "name": "VS CODE",
-            "img": "vscode.webp"
-          },
-          {
-            "name": "TAILWIND",
-            "img": "tailwind.webp"
-          }
-        ]
-      },
-      "profile": {
-        "title": "Profile",
-        "infTitle": "Basic Information",
-        "infList": [
-          {
-            "name": "Birtday",
-            "value": "01.01.1970"
-          },
-          {
-            "name": "Home City",
-            "value": "Izmir"
-          },
-          {
-            "name": "Education",
-            "value": "Dokuz Eylül Ünv. Çalışma Ekonomisi ve Endüstri İlişkileri"
-          },
-          {
-            "name": "Prefer",
-            "value": "Front-end, UI"
-          }
-        ],
-        "img": "https://loremflickr.com/600/550",
-        "aboutTitle": "About Me",
-        "aboutText": [
-          "Lorem ipsum dolor sit amet consectetur adipiscing elit at, justo lobortis curae ultricies montes iaculis cursus. Litora felis ornare egestas auctor aliquam suscipit, nec venenatis nibh diam magna senectus purus, a ultricies at ultrices inceptos.",
-          "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa."
-        ]
-      },
-      "projects": {
-        "title": "Projects",
-        "list": [
-          {
-            "title": "Workintech",
-            "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa.",
-            "img": "https://loremflickr.com/600/550",
-            "badges": ["react", "redux", "vercel"],
-            "links": [
-              { "name": "View Site", "url": "#" },
-              { "name": "Github", "url": "#" }
-            ]
-          },
-          {
-            "title": "Workintech1",
-            "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur",
-            "img": "https://loremflickr.com/600/550",
-            "badges": ["react", "redux", "vercel"],
-            "links": [
-              { "name": "View Site", "url": "#" },
-              { "name": "Github", "url": "#" }
-            ]
-          },
-          {
-            "title": "Workintech2",
-            "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum",
-            "img": "https://loremflickr.com/600/550",
-            "badges": ["react", "redux", "vercel"],
-            "links": [
-              { "name": "View Site", "url": "#" },
-              { "name": "Github", "url": "#" }
-            ]
-          }
-        ]
-      },
-      "footer": {
-        "title": "Send me a message!",
-        "subTitle": "Got a question or proposal, or just want to say hello? Go ahead.",
-        "email": "erdogan.sad@mail.com",
-        "badges": [
-          {
-            "icon": "fa-regular fa-envelope",
-            "url": "erdogan.sad@mail.com"
-          },
-          {
-            "icon": "fa-brands fa-github",
-            "url": "erdogan.sad@mail.com"
-          },
-          {
-            "icon": "fa-brands fa-linkedin-in",
-            "url": "erdogan.sad@mail.com"
-          }
-        ]
-      },
-      "notFound": ["Oops", "I think your hand accidentally clicked the mouse...", "You can go to the home page by clicking the button below", "Home"]
+      ]
     },
-    "tr": {
-      "langText": "SWITCH TO ENGLISH",
-      "darkText": "KOYU MOD",
-      "lightText": "AÇIK MOD",
-      "title": "Selam; ben bir ön-yüz geliştiricisiyim...",
-      "subTitle": "...bununla birlikte, ölçeklenebilir ve kullanıcı deneyimine uygun projeler üretmeyi hedeflemekteyim.",
-      "titleImg": "https://loremflickr.com/600/550",
-      "buttons": [
+    "profile": {
+      "title": "Profile",
+      "infTitle": "Basic Information",
+      "infList": [
         {
-          "name": "Github",
-          "url": "url",
-          "icon": "fa-brands fa-github"
+          "name": "Birtday",
+          "value": "01.01.1970"
         },
         {
-          "name": "Linkedin",
-          "url": "url",
-          "icon": "fa-brands fa-linkedin-in"
+          "name": "Home City",
+          "value": "Izmir"
+        },
+        {
+          "name": "Education",
+          "value": "Dokuz Eylül Ünv. Çalışma Ekonomisi ve Endüstri İlişkileri"
+        },
+        {
+          "name": "Prefer",
+          "value": "Front-end, UI"
         }
       ],
-      "skills": {
-        "title": "Kullandığım Araçlar",
-        "list": [
-          {
-            "name": "JAVASCRIPT",
-            "img": "javascript.webp"
-          },
-          {
-            "name": "REACT",
-            "img": "react.webp"
-          },
-          {
-            "name": "REDUX",
-            "img": "redux.webp"
-          },
-          {
-            "name": "NODE",
-            "img": "node.webp"
-          },
-          {
-            "name": "VS CODE",
-            "img": "vscode.webp"
-          },
-          {
-            "name": "TAILWIND",
-            "img": "tailwind.webp"
-          }
-        ]
+      "img": "https://loremflickr.com/600/550",
+      "aboutTitle": "About Me",
+      "aboutText": [
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit at, justo lobortis curae ultricies montes iaculis cursus. Litora felis ornare egestas auctor aliquam suscipit, nec venenatis nibh diam magna senectus purus, a ultricies at ultrices inceptos.",
+        "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa."
+      ]
+    },
+    "projects": {
+      "title": "Projects",
+      "list": [
+        {
+          "title": "Workintech",
+          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa.",
+          "img": "https://loremflickr.com/600/550",
+          "badges": ["react", "redux", "vercel"],
+          "links": [
+            { "name": "View Site", "url": "#" },
+            { "name": "Github", "url": "#" }
+          ]
+        },
+        {
+          "title": "Workintech1",
+          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur",
+          "img": "https://loremflickr.com/600/550",
+          "badges": ["react", "redux", "vercel"],
+          "links": [
+            { "name": "View Site", "url": "#" },
+            { "name": "Github", "url": "#" }
+          ]
+        },
+        {
+          "title": "Workintech2",
+          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum",
+          "img": "https://loremflickr.com/600/550",
+          "badges": ["react", "redux", "vercel"],
+          "links": [
+            { "name": "View Site", "url": "#" },
+            { "name": "Github", "url": "#" }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "title": "Send me a message!",
+      "subTitle": "Got a question or proposal, or just want to say hello? Go ahead.",
+      "email": "erdogan.sad@mail.com",
+      "badges": [
+        {
+          "icon": "fa-regular fa-envelope",
+          "url": "erdogan.sad@mail.com"
+        },
+        {
+          "icon": "fa-brands fa-github",
+          "url": "erdogan.sad@mail.com"
+        },
+        {
+          "icon": "fa-brands fa-linkedin-in",
+          "url": "erdogan.sad@mail.com"
+        }
+      ]
+    },
+    "notFound": ["Oops", "I think your hand accidentally clicked the mouse...", "You can go to the home page by clicking the button below", "Home"]
+  },
+  "tr": {
+    "langText": "SWITCH TO ENGLISH",
+    "darkText": "KOYU MOD",
+    "lightText": "AÇIK MOD",
+    "title": "Selam; ben bir ön-yüz geliştiricisiyim...",
+    "subTitle": "...bununla birlikte, ölçeklenebilir ve kullanıcı deneyimine uygun projeler üretmeyi hedeflemekteyim.",
+    "titleImg": "https://loremflickr.com/600/550",
+    "buttons": [
+      {
+        "name": "Github",
+        "url": "url",
+        "icon": "fa-brands fa-github"
       },
-      "profile": {
-        "title": "Özgeçmiş",
-        "infTitle": "Kişisel Bilgiler",
-        "infList": [
-          {
-            "name": "Doğum Günüm",
-            "value": "01.01.1970"
-          },
-          {
-            "name": "Yaşadığım Şehir",
-            "value": "Izmir"
-          },
-          {
-            "name": "Eğitimim",
-            "value": "Dokuz Eylül Ünv. Çalışma Ekonomisi ve Endüstri İlişkileri"
-          },
-          {
-            "name": "Tercihlerim",
-            "value": "Front-end, UI"
-          }
-        ],
-        "img": "https://loremflickr.com/600/550",
-        "aboutTitle": "Hakkımda",
-        "aboutText": [
-          "Lorem ipsum dolor sit amet consectetur adipiscing elit at, justo lobortis curae ultricies montes iaculis cursus. Litora felis ornare egestas auctor aliquam suscipit, nec venenatis nibh diam magna senectus purus, a ultricies at ultrices inceptos.",
-          "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa."
-        ]
-      },
-      "projects": {
-        "title": "Projelerim",
-        "list": [
-          {
-            "title": "Workintech",
-            "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa.",
-            "img": "https://loremflickr.com/600/550",
-            "badges": ["react", "redux", "vercel"],
-            "links": [
-              { "name": "Projeye Git", "url": "#" },
-              { "name": "Github", "url": "#" }
-            ]
-          },
-          {
-            "title": "Workintech1",
-            "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur",
-            "img": "https://loremflickr.com/600/550",
-            "badges": ["react", "redux", "vercel"],
-            "links": [
-              { "name": "Projeye Git", "url": "#" },
-              { "name": "Github", "url": "#" }
-            ]
-          },
-          {
-            "title": "Workintech2",
-            "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum",
-            "img": "https://loremflickr.com/600/550",
-            "badges": ["react", "redux", "vercel"],
-            "links": [
-              { "name": "Projeye Git", "url": "#" },
-              { "name": "Github", "url": "#" }
-            ]
-          }
-        ]
-      },
-      "footer": {
-        "title": "Sormak istediğin bir şey mi var?",
-        "subTitle": "Aşağıdaki bağlantıları kullanarak bana ulaşabilirsin.",
-        "email": "erdogan.sad@mail.com",
-        "badges": [
-          {
-            "icon": "fa-regular fa-envelope",
-            "url": "erdogan.sad@mail.com"
-          },
-          {
-            "icon": "fa-brands fa-github",
-            "url": "erdogan.sad@mail.com"
-          },
-          {
-            "icon": "fa-brands fa-linkedin-in",
-            "url": "erdogan.sad@mail.com"
-          }
-        ]
-      },
-      "notFound": ["Oops", "Sanırım elin çarptı...", "Aşağıdaki butona tıklayarak ana sayfaya gidebilirsin", "Ana Sayfa"]
-    }
+      {
+        "name": "Linkedin",
+        "url": "url",
+        "icon": "fa-brands fa-linkedin-in"
+      }
+    ],
+    "skills": {
+      "title": "Kullandığım Araçlar",
+      "list": [
+        {
+          "name": "JAVASCRIPT",
+          "img": "javascript.webp"
+        },
+        {
+          "name": "REACT",
+          "img": "react.webp"
+        },
+        {
+          "name": "REDUX",
+          "img": "redux.webp"
+        },
+        {
+          "name": "NODE",
+          "img": "node.webp"
+        },
+        {
+          "name": "VS CODE",
+          "img": "vscode.webp"
+        },
+        {
+          "name": "TAILWIND",
+          "img": "tailwind.webp"
+        }
+      ]
+    },
+    "profile": {
+      "title": "Özgeçmiş",
+      "infTitle": "Kişisel Bilgiler",
+      "infList": [
+        {
+          "name": "Doğum Günüm",
+          "value": "01.01.1970"
+        },
+        {
+          "name": "Yaşadığım Şehir",
+          "value": "Izmir"
+        },
+        {
+          "name": "Eğitimim",
+          "value": "Dokuz Eylül Ünv. Çalışma Ekonomisi ve Endüstri İlişkileri"
+        },
+        {
+          "name": "Tercihlerim",
+          "value": "Front-end, UI"
+        }
+      ],
+      "img": "https://loremflickr.com/600/550",
+      "aboutTitle": "Hakkımda",
+      "aboutText": [
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit at, justo lobortis curae ultricies montes iaculis cursus. Litora felis ornare egestas auctor aliquam suscipit, nec venenatis nibh diam magna senectus purus, a ultricies at ultrices inceptos.",
+        "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa."
+      ]
+    },
+    "projects": {
+      "title": "Projelerim",
+      "list": [
+        {
+          "title": "Workintech",
+          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa.",
+          "img": "https://loremflickr.com/600/550",
+          "badges": ["react", "redux", "vercel"],
+          "links": [
+            { "name": "Projeye Git", "url": "#" },
+            { "name": "Github", "url": "#" }
+          ]
+        },
+        {
+          "title": "Workintech1",
+          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur",
+          "img": "https://loremflickr.com/600/550",
+          "badges": ["react", "redux", "vercel"],
+          "links": [
+            { "name": "Projeye Git", "url": "#" },
+            { "name": "Github", "url": "#" }
+          ]
+        },
+        {
+          "title": "Workintech2",
+          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum",
+          "img": "https://loremflickr.com/600/550",
+          "badges": ["react", "redux", "vercel"],
+          "links": [
+            { "name": "Projeye Git", "url": "#" },
+            { "name": "Github", "url": "#" }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "title": "Sormak istediğin bir şey mi var?",
+      "subTitle": "Aşağıdaki bağlantıları kullanarak bana ulaşabilirsin.",
+      "email": "erdogan.sad@mail.com",
+      "badges": [
+        {
+          "icon": "fa-regular fa-envelope",
+          "url": "erdogan.sad@mail.com"
+        },
+        {
+          "icon": "fa-brands fa-github",
+          "url": "erdogan.sad@mail.com"
+        },
+        {
+          "icon": "fa-brands fa-linkedin-in",
+          "url": "erdogan.sad@mail.com"
+        }
+      ]
+    },
+    "notFound": ["Oops", "Sanırım elin çarptı...", "Aşağıdaki butona tıklayarak ana sayfaya gidebilirsin", "Ana Sayfa"]
   }
-]
+}
