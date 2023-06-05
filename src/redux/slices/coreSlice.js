@@ -31,7 +31,8 @@ const coreSlice = createSlice({
       state.lang = action.payload;
     },
     fetchTheme: (state) => {
-      state.theme = localStorage.getItem("theme") !== null ? localStorage.getItem("theme") : "light";
+      state.theme =
+        localStorage.getItem("theme") !== null ? localStorage.getItem("theme") : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     },
     changeTheme: (state, action) => {
       localStorage.setItem("theme", action.payload);
