@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-
-import Header from "../../layouts/Header";
-import LoadingSpinner from "@components/LoadingSpinner";
 
 import javascript from "@assets/img/skills/javascript.webp";
 import react from "@assets/img/skills/react.webp";
@@ -17,20 +14,16 @@ import tailwind from "@assets/img/skills/tailwind.webp";
 
 library.add(faGithub, faLinkedinIn);
 
+const LazyHeader = lazy(() => import("@layouts/Header"));
+
 const Home = () => {
   const [images] = useState([javascript, react, redux, nodejs, vscode, tailwind]);
-  const { contents, isLoading } = useSelector((store) => store.core);
-
-  if (isLoading || contents.length < 1) {
-    return <LoadingSpinner />;
-  }
-
-  const { title, subTitle, titleImg, buttons, skills, profile, projects } = contents;
+  const { title, subTitle, titleImg, buttons, skills, profile, projects } = useSelector((store) => store.core.contents);
 
   return (
     <div className="font-inter overflow-x-hidden">
       <section className="relative pb-10 h-fit md:pb-0 md:h-screen bg-purpleHearth dark:bg-bunting after:absolute after:bottom-0 after:end-0 after:h-[100rem] after:lg:w-32 after:content-[''] after:overflow-y-hidden after:bg-sulu after:dark:bg-seaWeed">
-        <Header />
+        <LazyHeader />
         <div className="container grid lg:grid-cols-2 grid-cols-1 gap-x-20 place-items-center md:pt-10 xl:pt-20">
           <div className="order-last lg:order-first">
             <span className="block text-sulu text-center lg:text-start text-3xl md:text-6xl xl:text-7xl font-bold py-10">{title}</span>
@@ -58,7 +51,7 @@ const Home = () => {
           <div className="flex flex-col gap-y-6">
             {skills.list.slice(0, 3).map((skill, id) => (
               <div key={id} className="flex gap-x-5 items-center">
-                <img className="border rounded w-28 h-28 lg:w-32 lg:h-32" src={images[id]} alt="" />
+                <img className="rounded w-28 h-28 lg:w-32 lg:h-32" src={images[id]} alt="" />
 
                 <span className="text-xl lg:text-2xl text-gray-500 dark:text-white">{skill.name}</span>
               </div>
@@ -67,7 +60,7 @@ const Home = () => {
           <div className="flex flex-col gap-y-6">
             {skills.list.slice(3, 6).map((skill, id) => (
               <div key={id} className="flex gap-x-5 items-center">
-                <img className="border rounded w-28 h-28 lg:w-32 lg:h-32" src={images[id + 3]} alt="" />
+                <img className="rounded w-28 h-28 lg:w-32 lg:h-32" src={images[id + 3]} alt="" />
                 <span className="text-xl lg:text-2xl text-gray-500 dark:text-white">{skill.name}</span>
               </div>
             ))}

@@ -1,13 +1,14 @@
 import React, { lazy, useEffect } from "react";
-import routes from "./routes/";
 import { Navigate, Route, Routes } from "react-router-dom";
+import routes from "./routes/";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData, fetchLang, fetchTheme } from "../redux/slices/coreSlice";
+import { fetchData, fetchLang, fetchTheme } from "@slices/coreSlice";
+import LoadingSpinner from "@components/LoadingSpinner";
 
 const LazyFooter = lazy(() => import("@layouts/Footer"));
 
 export const Router = () => {
-  const { theme, lang } = useSelector((store) => store.core);
+  const { theme, lang, contents, isLoading } = useSelector((store) => store.core);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,10 +17,10 @@ export const Router = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (lang !== "") {
-      dispatch(fetchData());
-    }
+    if (lang !== "" && lang !== undefined) dispatch(fetchData(lang));
   }, [dispatch, lang]);
+
+  if (isLoading || Object.keys(contents).length === 0) return <LoadingSpinner />;
 
   const RenderRoute = ({ route }) => {
     if (route.layout === "default") {

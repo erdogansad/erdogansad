@@ -3,30 +3,32 @@ import { changeLang, changeTheme } from "@slices/coreSlice";
 
 const Header = () => {
   const { contents, theme, lang } = useSelector((store) => store.core);
+  const { langText, lightText, darkText } = contents;
   const dispatch = useDispatch();
 
   const resolveSwitchBtn = () => {
-    if (lang && contents) {
-      if (lang === "tr") {
-        let text = contents.langText.split(" ");
-        return (
-          <button onClick={() => dispatch(changeLang("en"))} className="font-bold text-sulu dark:text-bilobaFlower text-center md:text-start">
+    let text = lang === "tr" ? langText.split(" ") : langText.split("'");
+
+    return (
+      <button
+        onClick={() => dispatch(changeLang(lang === "tr" ? "en" : "tr"))}
+        className="font-bold text-sulu dark:text-bilobaFlower text-center md:text-start"
+      >
+        {lang === "tr" ? (
+          <>
             <span className="text-alto dark:text-boulder">
               {text[0]} {text[1]}
-            </span>
-            {` ${text[2]}`}
-          </button>
-        );
-      } else {
-        let text = contents.langText.split("'");
-        return (
-          <button onClick={() => dispatch(changeLang("tr"))} className="font-bold text-sulu dark:text-bilobaFlower text-center md:text-start">
+            </span>{" "}
+            {text[2]}
+          </>
+        ) : (
+          <>
             {text[0]}
             <span className="text-alto dark:text-boulder">'{text[1]}</span>
-          </button>
-        );
-      }
-    }
+          </>
+        )}
+      </button>
+    );
   };
 
   return (
@@ -45,9 +47,7 @@ const Header = () => {
               />
               <div className="w-12 h-6 bg-mineShaft-500 relative rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-yellow after:content-[''] after:absolute after:top-1 after:left-1 peer-checked:after:left-3 after:bg-kournikova after:border-kournikova after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-malibu"></div>
               <div className="absolute w-3 h-3 rounded-full start-2.5 z-10 peer top-1 bg-mineShaft-500 peer-checked:w-0 peer-checked:h-0"></div>
-              <span className="ml-3 font-bold text-sulu lg:text-purpleHearth dark:text-alto">
-                {theme === "light" && contents ? contents.lightText : contents.darkText}
-              </span>
+              <span className="ml-3 font-bold text-sulu lg:text-purpleHearth dark:text-alto">{theme === "light" ? lightText : darkText}</span>
             </label>
           </div>
         </div>

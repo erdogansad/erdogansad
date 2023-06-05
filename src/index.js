@@ -2,11 +2,10 @@ import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import LoadingSpinner from "@components/LoadingSpinner";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 import { setupStore } from "./redux/store";
-// import reportWebVitals from "./reportWebVitals";
 
 import "@assets/css/index.css";
-import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const store = setupStore();
@@ -23,5 +22,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
-/* reportWebVitals(); */
