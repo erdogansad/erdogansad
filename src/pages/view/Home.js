@@ -46,30 +46,36 @@ const Home = () => {
         </div>
       </section>
       <section className="py-20 lg:py-40 dark:bg-balticSea">
-        <div className="container grid grid-cols-1 justify-items-center md:grid-cols-2 lg:justify-items-start gap-y-10 lg:gap-y-0 lg:grid-cols-3 lg:gap-x-10">
-          <span className="col-span-1 md:col-span-2 lg:col-span-1 text-6xl text-purpleHearth font-bold dark:text-sulu">{skills.title}</span>
-          <div className="flex flex-col gap-y-6">
-            {skills.list.slice(0, 3).map((skill, id) => (
-              <div key={id} className="flex gap-x-5 items-center">
-                <img className="rounded w-28 h-28 lg:w-32 lg:h-32" src={images[id]} alt="" />
+        <div className="container grid grid-cols-1 md:grid-cols-2 gap-y-10 lg:gap-y-0 lg:grid-cols-3 lg:gap-x-10">
+          <span className="col-span-1 md:col-span-2 lg:col-span-1 text-center lg:text-start text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-purpleHearth font-bold dark:text-sulu">
+            {skills.title}
+          </span>
+          <div className="col-span-2 flex flex-col gap-y-6 md:flex-row mx-auto md:mx-0 justify-around">
+            <div className="flex flex-col gap-y-6">
+              {skills.list.slice(0, 3).map((skill, id) => (
+                <div key={id} className="flex gap-x-5 items-center">
+                  <img className="rounded w-28 h-28 lg:w-32 lg:h-32" src={images[id]} alt="" />
 
-                <span className="text-xl lg:text-2xl text-gray-500 dark:text-white">{skill.name}</span>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col gap-y-6">
-            {skills.list.slice(3, 6).map((skill, id) => (
-              <div key={id} className="flex gap-x-5 items-center">
-                <img className="rounded w-28 h-28 lg:w-32 lg:h-32" src={images[id + 3]} alt="" />
-                <span className="text-xl lg:text-2xl text-gray-500 dark:text-white">{skill.name}</span>
-              </div>
-            ))}
+                  <span className="text-xl lg:text-2xl text-gray-500 dark:text-white">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col gap-y-6">
+              {skills.list.slice(3, 6).map((skill, id) => (
+                <div key={id} className="flex gap-x-5 items-center">
+                  <img className="rounded w-28 h-28 lg:w-32 lg:h-32" src={images[id + 3]} alt="" />
+                  <span className="text-xl lg:text-2xl text-gray-500 dark:text-white">{skill.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
       <section className="py-10 lg:py-20 bg-purpleHearth dark:bg-bunting">
         <div className="container">
-          <span className="block mb-10 lg:mb-0 text-6xl text-sulu font-bold">{profile.title}</span>
+          <span className="block mb-10 lg:mb-0 text-center lg:text-start text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-sulu font-bold">
+            {profile.title}
+          </span>
           <div className="grid gap-5 md:gap-10 md:grid-cols-2 lg:gap-5 lg:grid-cols-3 lg:py-10">
             <div className="col-span-1">
               <span className="text-3xl text-sulu dark:text-white">{profile.infTitle}</span>
@@ -100,8 +106,10 @@ const Home = () => {
       </section>
       <section className="py-20 bg-sulu dark:bg-seaWeed">
         <div className="container">
-          <span className="text-6xl text-purpleHearth font-bold dark:text-sulu">{projects.title}</span>
-          <div className="flex flex-col gap-y-10 items-center pt-20 pb-10">
+          <span className="block text-center lg:text-start text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-purpleHearth font-bold dark:text-sulu">
+            {projects.title}
+          </span>
+          <div className="flex flex-col gap-y-10 items-center pt-8 lg:pt-20 pb-10">
             {projects.list.map((project, id) => (
               <div key={id} className="bg-white w-80 md:w-96 lg:w-5/6 flex flex-col lg:flex-row gap-x-10 rounded-2xl shadow-xl dark:bg-mineShaft-600">
                 <img className="rounded-t-2xl lg:rounded-r-none lg:rounded-s-2xl w-96 object-none" src={project.img} alt="" />
