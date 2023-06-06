@@ -16,12 +16,15 @@ const Footer = () => {
     <footer className="flex flex-col justify-center items-center py-20 dark:bg-balticSea">
       <span className="text-center text-4xl font-bold text-purpleHearth dark:text-malibu">{title}</span>
       <span className="text-center text-xl py-4 dark:text-white">{subTitle}</span>
-      <Link to={`mailto:${email}`} className="text-purpleHearth text-lg underline underline-offset-4 font-semibold dark:text-malibu">
+      <Link
+        to={`mailto:${email}`}
+        className="text-purpleHearth text-lg underline underline-offset-4 font-semibold dark:text-malibu hover:text-balticSea  dark:hover:text-white"
+      >
         {email}
       </Link>
       <div className="flex gap-x-4 text-purpleHearth text-3xl py-4 dark:text-malibu">
         {badges.map((badge, id) => (
-          <Link to={badge.url} target="_blank" rel="noopener noreferrer" key={id}>
+          <Link to={badge.url} target="_blank" rel="noopener noreferrer" className="hover:text-bunting dark:hover:text-white" key={id}>
             <FontAwesomeIcon icon={badge.icon} />
           </Link>
         ))}

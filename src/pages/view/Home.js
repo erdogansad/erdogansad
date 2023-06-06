@@ -41,7 +41,7 @@ const Home = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   key={id}
-                  className="bg-white dark:bg-balticSea flex items-center md:text-xl px-3 py-2 md:px-4 md:py-3 rounded-xl text-purpleHearth dark:text-white font-semibold"
+                  className="bg-white dark:bg-balticSea flex items-center md:text-xl px-3 py-2 md:px-4 md:py-3 rounded-xl text-purpleHearth dark:text-white font-semibold hover:bg-bunting hover:text-white dark:hover:bg-white dark:hover:text-balticSea"
                 >
                   <FontAwesomeIcon className="me-2 text-xl md:text-2xl" icon={detail.icon} />
                   {detail.name}
@@ -129,7 +129,10 @@ const Home = () => {
                   </div>
                   <div className="flex justify-center lg:justify-start gap-x-2 py-2">
                     {project.badges.map((badge, idx) => (
-                      <button key={idx} className="rounded-full px-6 py-2 bg-purpleHearth text-white dark:bg-trueV">
+                      <button
+                        key={idx}
+                        className="rounded-full px-6 py-2 bg-purpleHearth text-white dark:bg-trueV hover:bg-bunting hover:text-white dark:hover:bg-white dark:hover:text-balticSea"
+                      >
                         {badge}
                       </button>
                     ))}
@@ -141,7 +144,7 @@ const Home = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         key={idx}
-                        className="underline underline-offset-4 font-semibold dark:text-sulu"
+                        className="underline underline-offset-4 font-semibold dark:text-sulu  hover:text-stone-500 dark:hover:text-stone-400"
                       >
                         {link.name}
                       </Link>
