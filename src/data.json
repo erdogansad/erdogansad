@@ -9,12 +9,12 @@
     "buttons": [
       {
         "name": "Github",
-        "url": "url",
+        "url": "https://github.com/erdogansad",
         "icon": "fa-brands fa-github"
       },
       {
         "name": "Linkedin",
-        "url": "url",
+        "url": "https://www.linkedin.com/in/erdogansad/",
         "icon": "fa-brands fa-linkedin-in"
       }
     ],
@@ -71,41 +71,40 @@
       "img": "https://loremflickr.com/600/550",
       "aboutTitle": "About Me",
       "aboutText": [
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit at, justo lobortis curae ultricies montes iaculis cursus. Litora felis ornare egestas auctor aliquam suscipit, nec venenatis nibh diam magna senectus purus, a ultricies at ultrices inceptos.",
-        "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa."
+        "For nearly 10 years, I have been writing projects in LUA, PHP languages and offering solutions to business companies that meet their needs."
       ]
     },
     "projects": {
       "title": "Projects",
       "list": [
         {
-          "title": "Workintech",
-          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa.",
-          "img": "https://loremflickr.com/600/550",
-          "badges": ["react", "redux", "vercel"],
+          "title": "NASA APOD",
+          "description": "The NASA APOD project, created using React, Tailwind, and Axios libraries, is an impressive web application that presents a new image every day, taking users into the captivating world of space. These libraries offer a powerful combination to enhance the project and improve the user experience.",
+          "img": "nasa.png",
+          "badges": ["react", "tailwind", "axios", "vercel"],
           "links": [
-            { "name": "View Site", "url": "#" },
-            { "name": "Github", "url": "#" }
+            { "name": "View Site", "url": "https://fs-web-s6-g3-nasa-green.vercel.app/" },
+            { "name": "Github", "url": "https://github.com/erdogansad/FSWeb-S6G3-Nasa" }
           ]
         },
         {
-          "title": "Workintech1",
-          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur",
-          "img": "https://loremflickr.com/600/550",
-          "badges": ["react", "redux", "vercel"],
+          "title": "Technologic Foods",
+          "description": "This pizza ordering project, created using React, Bootstrap, and Axios libraries, offers a modern user interface and efficient data management, providing a seamless experience for ordering pizzas. Users can explore delicious pizzas, customize them, and place orders with ease.",
+          "img": "pizza.png",
+          "badges": ["react", "bootstrap", "axios", "vercel"],
           "links": [
-            { "name": "View Site", "url": "#" },
-            { "name": "Github", "url": "#" }
+            { "name": "View Site", "url": "https://fsweb-s7-challenge-pizza-swart.vercel.app/" },
+            { "name": "Github", "url": "https://github.com/erdogansad/fsweb-s7-challenge-pizza" }
           ]
         },
         {
-          "title": "Workintech2",
-          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum",
-          "img": "https://loremflickr.com/600/550",
-          "badges": ["react", "redux", "vercel"],
+          "title": "Client-Auth Friends",
+          "description": "The User Panel project, created by combining React, Tailwind CSS, and Axios libraries, offers users a customizable experience. Users can manage their profiles, change settings, and access other customizable features.",
+          "img": "client-auth.png",
+          "badges": ["react", "tailwind", "redux", "axios", "vercel"],
           "links": [
-            { "name": "View Site", "url": "#" },
-            { "name": "Github", "url": "#" }
+            { "name": "View Site", "url": "https://fsweb-s11g2-client-auth-friends-nu.vercel.app/" },
+            { "name": "Github", "url": "https://github.com/erdogansad/fsweb-s11g2-client-auth-friends" }
           ]
         }
       ]
@@ -117,15 +116,15 @@
       "badges": [
         {
           "icon": "fa-regular fa-envelope",
-          "url": "erdogan.sad@mail.com"
+          "url": "mailto:erdogan.sad@mail.com"
         },
         {
           "icon": "fa-brands fa-github",
-          "url": "erdogan.sad@mail.com"
+          "url": "https://github.com/erdogansad"
         },
         {
           "icon": "fa-brands fa-linkedin-in",
-          "url": "erdogan.sad@mail.com"
+          "url": "https://www.linkedin.com/in/erdogansad/"
         }
       ]
     },
@@ -141,12 +140,12 @@
     "buttons": [
       {
         "name": "Github",
-        "url": "url",
+        "url": "https://github.com/erdogansad",
         "icon": "fa-brands fa-github"
       },
       {
         "name": "Linkedin",
-        "url": "url",
+        "url": "https://www.linkedin.com/in/erdogansad/",
         "icon": "fa-brands fa-linkedin-in"
       }
     ],
@@ -203,41 +202,40 @@
       "img": "https://loremflickr.com/600/550",
       "aboutTitle": "Hakkımda",
       "aboutText": [
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit at, justo lobortis curae ultricies montes iaculis cursus. Litora felis ornare egestas auctor aliquam suscipit, nec venenatis nibh diam magna senectus purus, a ultricies at ultrices inceptos.",
-        "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa."
+        "Yaklaşık 10 senedir LUA diliyle çalışmaktayım. Son 3 senedir ise front-end'de React kütüphanesi, back-end'de ise MySQL, MongoDB gibi veritabanı çözümleriyle birlikte PHP dilini kullanarak kurumsal firmalara ihtiyaçlarına uygun uygulamalar sunuyorum."
       ]
     },
     "projects": {
       "title": "Projelerim",
       "list": [
         {
-          "title": "Workintech",
-          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostra libero bibendum ad posuere potenti massa.",
-          "img": "https://loremflickr.com/600/550",
-          "badges": ["react", "redux", "vercel"],
+          "title": "NASA APOD",
+          "description": "React, Tailwind ve Axios kütüphanelerini kullanarak oluşturulan NASA APOD projesi, her gün yeni bir görsel sunan ve kullanıcıları uzayın büyüleyici dünyasına götüren etkileyici bir web uygulamasıdır. Bu kütüphaneler, projeyi geliştirmek ve kullanıcı deneyimini daha da iyileştirmek için güçlü bir kombinasyon sunar.",
+          "img": "nasa.png",
+          "badges": ["react", "tailwind", "axios", "vercel"],
           "links": [
-            { "name": "Projeye Git", "url": "#" },
-            { "name": "Github", "url": "#" }
+            { "name": "Projeye Git", "url": "https://fs-web-s6-g3-nasa-green.vercel.app/" },
+            { "name": "Github", "url": "https://github.com/erdogansad/FSWeb-S6G3-Nasa" }
           ]
         },
         {
-          "title": "Workintech1",
-          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum, nostralibero bibendum ad posuere potenti massa.Lobortis torquent purus lacinia platea habitassemattis quam nascetur",
-          "img": "https://loremflickr.com/600/550",
-          "badges": ["react", "redux", "vercel"],
+          "title": "Teknolojik Yemekler",
+          "description": "React, Bootstrap ve Axios kütüphaneleriyle oluşturulan bu pizza siparişi projesi, modern bir kullanıcı arayüzü ve etkili veri yönetimi ile pizza siparişlerini kolaylaştıran bir deneyim sunar. Kullanıcılar, lezzetli pizzaları keşfedebilir, özelleştirebilir ve kolayca sipariş verebilir.",
+          "img": "pizza.png",
+          "badges": ["react", "bootstrap", "axios", "vercel"],
           "links": [
-            { "name": "Projeye Git", "url": "#" },
-            { "name": "Github", "url": "#" }
+            { "name": "Projeye Git", "url": "https://fsweb-s7-challenge-pizza-swart.vercel.app/" },
+            { "name": "Github", "url": "https://github.com/erdogansad/fsweb-s7-challenge-pizza" }
           ]
         },
         {
-          "title": "Workintech2",
-          "description": "Lobortis torquent purus lacinia platea habitasse mattis quam nascetur, facilisi eu convallis interdum vivamus phasellus est nullam cum",
-          "img": "https://loremflickr.com/600/550",
-          "badges": ["react", "redux", "vercel"],
+          "title": "Client-Auth Friends",
+          "description": "React, Tailwind CSS ve Axios kütüphanelerini bir araya getirerek oluşturulan Kullanıcı Paneli projesi, kullanıcılara kişiselleştirilebilir bir deneyim sunar. Kullanıcılar, profillerini yönetebilir, ayarları değiştirebilir ve diğer özelleştirilebilir özelliklere erişebilir.",
+          "img": "client-auth.png",
+          "badges": ["react", "tailwind", "redux", "axios", "vercel"],
           "links": [
-            { "name": "Projeye Git", "url": "#" },
-            { "name": "Github", "url": "#" }
+            { "name": "Projeye Git", "url": "https://fsweb-s11g2-client-auth-friends-nu.vercel.app/" },
+            { "name": "Github", "url": "https://github.com/erdogansad/fsweb-s11g2-client-auth-friends" }
           ]
         }
       ]
@@ -249,15 +247,15 @@
       "badges": [
         {
           "icon": "fa-regular fa-envelope",
-          "url": "erdogan.sad@mail.com"
+          "url": "mailto:erdogan.sad@mail.com"
         },
         {
           "icon": "fa-brands fa-github",
-          "url": "erdogan.sad@mail.com"
+          "url": "https://github.com/erdogansad"
         },
         {
           "icon": "fa-brands fa-linkedin-in",
-          "url": "erdogan.sad@mail.com"
+          "url": "https://www.linkedin.com/in/erdogansad/"
         }
       ]
     },
