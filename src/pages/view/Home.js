@@ -12,12 +12,18 @@ import nodejs from "@assets/img/skills/nodejs.webp";
 import vscode from "@assets/img/skills/vscode.webp";
 import tailwind from "@assets/img/skills/tailwind.webp";
 
+import nasaApodImg from "@assets/img/projects/nasa.png";
+import pizzaImg from "@assets/img/projects/pizza.png";
+import clientAuthImg from "@assets/img/projects/client-auth.png";
+import { Link } from "react-router-dom";
+
 library.add(faGithub, faLinkedinIn);
 
 const LazyHeader = lazy(() => import("@layouts/Header"));
 
 const Home = () => {
   const [images] = useState([javascript, react, redux, nodejs, vscode, tailwind]);
+  const [projectsImg] = useState([nasaApodImg, pizzaImg, clientAuthImg]);
   const { title, subTitle, titleImg, buttons, skills, profile, projects } = useSelector((store) => store.core.contents);
 
   return (
@@ -30,13 +36,16 @@ const Home = () => {
             <span className="block text-sulu text-center lg:text-start text-xl md:text-3xl xl:text-4xl pb-10">{subTitle}</span>
             <div className="flex justify-center lg:justify-normal gap-x-4">
               {buttons.map((detail, id) => (
-                <button
+                <Link
+                  to={detail.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   key={id}
                   className="bg-white dark:bg-balticSea flex items-center md:text-xl px-3 py-2 md:px-4 md:py-3 rounded-xl text-purpleHearth dark:text-white font-semibold"
                 >
                   <FontAwesomeIcon className="me-2 text-xl md:text-2xl" icon={detail.icon} />
                   {detail.name}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -112,7 +121,7 @@ const Home = () => {
           <div className="flex flex-col gap-y-10 items-center pt-8 lg:pt-20 pb-10">
             {projects.list.map((project, id) => (
               <div key={id} className="bg-white w-80 md:w-96 lg:w-5/6 flex flex-col lg:flex-row gap-x-10 rounded-2xl shadow-xl dark:bg-mineShaft-600">
-                <img className="rounded-t-2xl lg:rounded-r-none lg:rounded-s-2xl w-96 object-none" src={project.img} alt="" />
+                <img className="rounded-t-2xl lg:rounded-r-none lg:rounded-s-2xl w-96 object-cover" src={projectsImg[id]} alt="" />
                 <div className="flex flex-col flex-grow-1 items-stretch py-10">
                   <div className="flex-grow">
                     <span className="block text-center lg:text-start text-3xl font-bold text-purpleHearth dark:text-bilobaFlower">{project.title}</span>
@@ -127,9 +136,15 @@ const Home = () => {
                   </div>
                   <div className="flex justify-center lg:justify-start gap-x-4 pt-4">
                     {project.links.map((link, idx) => (
-                      <span key={idx} className="underline underline-offset-4 font-semibold dark:text-sulu">
+                      <Link
+                        to={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={idx}
+                        className="underline underline-offset-4 font-semibold dark:text-sulu"
+                      >
                         {link.name}
-                      </span>
+                      </Link>
                     ))}
                   </div>
                 </div>
