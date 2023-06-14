@@ -28,12 +28,12 @@ const Home = () => {
 
   return (
     <div className="font-inter overflow-x-hidden">
-      <section className="relative pb-10 h-fit md:pb-0 md:h-screen bg-purpleHearth dark:bg-bunting after:absolute after:bottom-0 after:end-0 after:h-[100rem] after:lg:w-32 after:content-[''] after:overflow-y-hidden after:bg-sulu after:dark:bg-seaWeed">
+      <section className="relative pb-10 min-h-fit xl:pb-0 xl:h-screen bg-purpleHearth dark:bg-bunting after:absolute after:bottom-0 after:end-0 after:h-[100rem] after:lg:w-32 after:content-[''] after:overflow-y-hidden after:bg-sulu after:dark:bg-seaWeed">
         <LazyHeader />
-        <div className="container grid lg:grid-cols-2 grid-cols-1 gap-x-20 place-items-center md:pt-10 xl:pt-20">
+        <div className="container grid lg:grid-cols-2 grid-cols-1 gap-x-20 place-items-center pt-10 pb-10">
           <div className="order-last lg:order-first">
-            <span className="block text-sulu text-center lg:text-start text-3xl md:text-6xl xl:text-7xl font-bold py-10">{title}</span>
-            <span className="block text-sulu text-center lg:text-start text-xl md:text-3xl xl:text-4xl pb-10">{subTitle}</span>
+            <span className="block text-sulu text-center lg:text-start text-3xl md:text-5xl 2xl:text-7xl font-bold py-10">{title}</span>
+            <span className="block text-sulu text-center lg:text-start text-xl md:text-3xl 2xl:text-4xl pb-10">{subTitle}</span>
             <div className="flex justify-center lg:justify-normal gap-x-4">
               {buttons.map((detail, id) => (
                 <Link
@@ -50,7 +50,7 @@ const Home = () => {
             </div>
           </div>
           <div className="lg:place-self-end z-10">
-            <img className="rounded-3xl shadow-lg h-auto hidden md:block md:w-96 lg:w-auto" src={titleImg} alt="" />
+            <img className="rounded-3xl shadow-lg h-auto hidden md:block md:w-96 2xl:w-auto" src={titleImg} alt="" />
           </div>
         </div>
       </section>
