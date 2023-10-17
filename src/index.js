@@ -8,7 +8,13 @@ import "@assets/css/globals.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const App = lazy(() => import("./App"));
 root.render(
-  <Suspense fallback={<LoadingSpinner size={16} />}>
+  <Suspense
+    fallback={
+      <div className="h-screen flex justify-center items-center bg-slate-900">
+        <LoadingSpinner size={24} />
+      </div>
+    }
+  >
     <BrowserRouter basename="/">
       <App />
     </BrowserRouter>
