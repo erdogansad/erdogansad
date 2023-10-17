@@ -1,54 +1,74 @@
-import React, { lazy, useEffect } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
-import routes from "./routes/";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchData, fetchLang, fetchTheme } from "@slices/coreSlice";
+import React, { lazy, useEffect, useState } from "react";
+import { Switch as Routes, Route, Redirect } from "react-router-dom";
+import { routes } from "./routes";
+import PrivateRoute from "@components/PrivateRoute";
 import LoadingSpinner from "@components/LoadingSpinner";
+import ToTopButton from "@components/ToTopButton";
 
+const LazyHeader = lazy(() => import("@layouts/Header"));
 const LazyFooter = lazy(() => import("@layouts/Footer"));
 
-export const Router = () => {
-  const { theme, lang, contents, isLoading } = useSelector((store) => store.core);
-  const dispatch = useDispatch();
+const Router = () => {
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(fetchTheme());
-    dispatch(fetchLang());
-  }, [dispatch]);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
-  useEffect(() => {
-    if (lang !== "" && lang !== undefined) dispatch(fetchData(lang));
-  }, [dispatch, lang]);
+  const RenderRoute = (props) => {
+    const { route } = props;
 
-  if (isLoading || Object.keys(contents).length === 0) return <LoadingSpinner />;
-
-  const RenderRoute = ({ route }) => {
     if (route.layout === "default") {
+      if (loading) {
+        return (
+          <div className="h-screen flex justify-center items-center bg-slate-900">
+            <LoadingSpinner size={24} />
+          </div>
+        );
+      }
       return (
-        <div className={theme}>
-          <route.component />
+        <>
+          <LazyHeader />
+          <route.element />
+          <ToTopButton />
           <LazyFooter />
-        </div>
+        </>
       );
     } else if (route.layout === "blank") {
-      return (
-        <div className={theme}>
-          <route.component />
-        </div>
-      );
+      return <route.element />;
     }
   };
 
   const resolveRoutes = () => {
     return routes.map((route) => {
-      return <Route key={route.path} exact={route.exact === true} path={route.path} element={<RenderRoute route={route} />} />;
+      if (route.protected) {
+        return (
+          <Route key={route.path} exact={route.exact === true} path={route.path}>
+            <PrivateRoute>
+              <RenderRoute route={route} />
+            </PrivateRoute>
+          </Route>
+        );
+      } else {
+        return (
+          <Route key={route.path} exact={route.exact === true} path={route.path}>
+            <RenderRoute route={route} />
+          </Route>
+        );
+      }
     });
   };
 
   return (
     <Routes>
       {resolveRoutes()}
-      <Route path="*" element={<Navigate to="/404" replaced={true} />} />
+      <Route path="*">
+        <Redirect to="/404" replaced={true} />
+      </Route>
     </Routes>
   );
 };
+
+export default Router;

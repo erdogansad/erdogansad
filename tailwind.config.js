@@ -16,26 +16,24 @@ module.exports = {
         "2xl": "2rem",
       },
     },
+    fontFamily: {
+      leagueSpartan: ["League Spartan", "sans-serif"],
+      oswald: ["Oswald", "sans-serif"],
+      arimo: ["Arimo", "sans-serif"],
+    },
     extend: {
-      fontFamily: {
-        inter: ["Inter", "sans-serif"],
+      animation: {
+        "meteor-effect": "meteor 5s linear infinite",
       },
-      colors: {
-        purpleHearth: "#4731d3",
-        sulu: "#cbf281",
-        mineShaft: {
-          500: "#3a3a3a",
-          600: "#2B2727",
+      keyframes: {
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: 1 },
+          "70%": { opacity: 1 },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: 0,
+          },
         },
-        kournikova: "#ffe86e",
-        malibu: "#8f88ff",
-        alto: "#D9D9D9",
-        boulder: "#777777",
-        bilobaFlower: "#BAB2E7",
-        bunting: "#171043",
-        seaWeed: "#1A210B",
-        balticSea: "#252128",
-        trueV: "#8173DA",
       },
     },
   },
