@@ -1,5 +1,5 @@
 {
-  "name": "erdogansad-v2",
+  "name": "erdogansad",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -33,9 +33,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "craco eject"
   },
   "eslintConfig": {
     "extends": [
@@ -55,10 +53,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://erdogansad.github.io/",
   "devDependencies": {
     "@craco/craco": "^7.1.0",
-    "gh-pages": "^6.0.0",
     "tailwindcss": "^3.3.3"
   }
 }
