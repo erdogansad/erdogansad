@@ -21,6 +21,7 @@ import {
 } from "devicons-react";
 import { TbWorldWww } from "react-icons/tb";
 import { useWindowScroll } from "@uidotdev/usehooks";
+import { useTranslation } from "react-i18next";
 
 const list = ["Next.js Developer", "React Developer", "Node.js Developer", "Full-Stack Developer", "Front-End Developer", "Back-End Developer"];
 const projects = [
@@ -51,6 +52,7 @@ const projects = [
 ];
 
 const Home = () => {
+  const { t } = useTranslation();
   const [shuffledList, setShuffledList] = useState(list);
   const [sections, setSections] = useState({
     one: false,
@@ -107,6 +109,7 @@ const Home = () => {
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 translate-y-12"
                 >
+                  {/* <span className="text-white">{Array.isArray(t("projects", { returnObjects: true }).list).toString()}</span> */}
                   <span className="text-blue-50 text-3xl md:text-5xl xl:text-7xl font-bold cursor-default font-oswald">Erdoğan Şad</span>
                 </Transition.Child>
                 <Transition.Child

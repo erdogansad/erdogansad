@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import LoadingSpinner from "@components/LoadingSpinner";
 import { BrowserRouter } from "react-router-dom";
 import "@assets/css/globals.css";
+import "./utils/i18n";
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

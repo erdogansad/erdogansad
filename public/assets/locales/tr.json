@@ -1,0 +1,14 @@
+{
+  "about": {
+    "title": "Hakkımda"
+  },
+  "skills": {
+    "title": "Yeteneklerim"
+  },
+  "projects": {
+    "title": "Projelerim"
+  },
+  "contact": {
+    "title": "İletişim"
+  }
+}
