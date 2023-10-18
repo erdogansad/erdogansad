@@ -55,10 +55,18 @@
       "last 1 safari version"
     ]
   },
+<<<<<<< HEAD
   "homepage": "https://erdogansad.github.io",
   "devDependencies": {
     "@craco/craco": "^7.1.0",
     "gh-pages": "^6.0.0",
     "tailwindcss": "^3.3.3"
+=======
+  "homepage": "https://erdogansad.github.io/",
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "tailwindcss": "^3.3.3",
+    "gh-pages": "^6.0.0"
+>>>>>>> aad7be5ce346c44d9d6ad9248c5eb63d0fabceee
   }
 }
