@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
         <div className="flex items-center gap-2 lg:gap-5">
           {data.socials.map((social, index) => (
-            <Link key={index} to={social.url} target="_blank" rel="noopener noreferrer" className="relative w-10 h-10 lg:w-12 lg:h-12 group">
+            <Link key={index} to={{ pathname: social.url }} target="_blank" rel="noopener noreferrer" className="relative w-10 h-10 lg:w-12 lg:h-12 group">
               <div className="absolute inset-0 w-full h-full bg-blue-900 rounded-xl transition-transform duration-300 translate-x-0 translate-y-0 group-hover:translate-x-1 group-hover:translate-y-1"></div>
               <span className="block w-full h-full rounded-xl bg-blue-50 border border-blue-900 p-2 text-blue-950 relative">{socials[social.title]}</span>
             </Link>
