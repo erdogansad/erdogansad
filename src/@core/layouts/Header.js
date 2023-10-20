@@ -14,7 +14,7 @@ const Header = () => {
   }, [data]);
 
   const changeLang = () => {
-    localStorage.setItem("i18nextLng", data.langs[0].code);
+    localStorage.setItem("lang", data.langs[0].code);
     dispatch(fetchData());
   };
 
