@@ -1,13 +1,23 @@
 import { Transition } from "@headlessui/react";
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ScrollTo from "react-scroll-into-view";
+import { fetchData } from "../../redux/slices/rootSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.root);
   const [show, setShow] = React.useState(false);
 
   useEffect(() => {
     setShow(true);
-  }, []);
+  }, [data]);
+
+  const changeLang = () => {
+    localStorage.setItem("i18nextLng", data.langs[0].code);
+    dispatch(fetchData());
+  };
+
   return (
     <header className="hidden lg:block absolute h-full lg:h-auto w-full py-10 z-10">
       <Transition
@@ -22,57 +32,51 @@ const Header = () => {
       >
         <div className="hidden lg:block basis-1/3"></div>
         <nav className="basis-1/3 flex items-center justify-center gap-7 font-bold text-white text-lg">
-          <ScrollTo
-            scrollOptions={{
-              behavior: "smooth",
-              block: "center",
-              inline: "nearest",
-            }}
-            selector={`#about-section`}
-          >
-            <button className="relative group">
-              <span className="absolute inset-0 transition text-blue-500 duration-300 ease-out transform translate-x-0 translate-y-0 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
-                Hakkımda
-              </span>
-              <span className="absolute inset-0">Hakkımda</span>
-              <span>Hakkımda</span>
-            </button>
-          </ScrollTo>
-          <div className="h-8 border-e"></div>
-          <ScrollTo
-            scrollOptions={{
-              behavior: "smooth",
-              block: "center",
-              inline: "nearest",
-            }}
-            selector={`#projects-section`}
-          >
-            <button className="relative group">
-              <span className="absolute inset-0 transition text-blue-300 duration-300 ease-out transform translate-x-0 translate-y-0 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
-                Projelerim
-              </span>
-              <span className="absolute inset-0">Projelerim</span>
-              <span>Projelerim</span>
-            </button>
-          </ScrollTo>
-          <div className="h-8 border-e"></div>
-
-          <ScrollTo
-            scrollOptions={{
-              behavior: "smooth",
-              block: "center",
-              inline: "nearest",
-            }}
-            selector={`#footer`}
-          >
-            <button className="relative group">
-              <span className="absolute inset-0 transition text-blue-300 duration-300 ease-out transform translate-x-0 translate-y-0 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
-                İletişim
-              </span>
-              <span className="absolute inset-0">İletişim</span>
-              <span>İletişim</span>
-            </button>
-          </ScrollTo>
+          {data.page_titles.map((title, index) => {
+            if (index === data.page_titles.length - 1) {
+              return (
+                <ScrollTo
+                  key={index}
+                  scrollOptions={{
+                    behavior: "smooth",
+                    block: "center",
+                    inline: "nearest",
+                  }}
+                  selector={`#${title.el_id}`}
+                >
+                  <button className="relative group">
+                    <span className="absolute inset-0 transition text-blue-300 duration-300 ease-out transform translate-x-0 translate-y-0 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
+                      {title.title}
+                    </span>
+                    <span className="absolute inset-0">{title.title}</span>
+                    <span>{title.title}</span>
+                  </button>
+                </ScrollTo>
+              );
+            } else {
+              return (
+                <React.Fragment key={index}>
+                  <ScrollTo
+                    scrollOptions={{
+                      behavior: "smooth",
+                      block: "center",
+                      inline: "nearest",
+                    }}
+                    selector={`#${title.el_id}`}
+                  >
+                    <button className="relative group">
+                      <span className="absolute inset-0 transition text-blue-300 duration-300 ease-out transform translate-x-0 translate-y-0 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
+                        {title.title}
+                      </span>
+                      <span className="absolute inset-0">{title.title}</span>
+                      <span>{title.title}</span>
+                    </button>
+                  </ScrollTo>
+                  <div className="h-8 border-e"></div>
+                </React.Fragment>
+              );
+            }
+          })}
         </nav>
         <Transition.Child
           className="flex basis-1/3 justify-end"
@@ -83,12 +87,12 @@ const Header = () => {
           leaveFrom="opacity-100 translate-y-0"
           leaveTo="opacity-0 translate-y-12"
         >
-          <button className="relative group">
+          <button onClick={() => changeLang()} className="relative group">
             <span className="absolute inset-0 transition text-blue-300 duration-300 ease-out transform translate-x-0 translate-y-0 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
-              English
+              {data.langs[0].title}
             </span>
-            <span className="absolute inset-0 text-white">English</span>
-            <span className="text-white">English</span>
+            <span className="absolute inset-0 text-white">{data.langs[0].title}</span>
+            <span className="text-white">{data.langs[0].title}</span>
           </button>
         </Transition.Child>
       </Transition>

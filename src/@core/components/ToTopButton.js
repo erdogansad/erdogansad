@@ -12,7 +12,7 @@ const ToTopButton = () => {
       <ScrollTo
         className={`p-2 rounded-xl group bg-blue-200 text-blue-900 border border-blue-800 cursor-pointer`}
         scrollOptions={{ behavior: "smooth", block: "center", inline: "nearest" }}
-        selector={`#main-section`}
+        selector={`#main`}
       >
         <FaChevronUp className="w-full h-full" />
       </ScrollTo>
