@@ -9,7 +9,10 @@ let initialState = {
 
 export const fetchData = createAsyncThunk("root/fetchData", async (_, { rejectWithValue }) => {
   try {
-    const lang = localStorage.getItem("i18nextLng") || navigator.language || navigator.userLanguage || "en";
+    const lang =
+      localStorage.getItem("i18nextLng") || navigator.language.length > 2
+        ? navigator.language.slice(0, 2)
+        : navigator.language || navigator.userLanguage || "en";
     const response = await axios.get(process.env.REACT_APP_API_URL + "/portfolio/get?lang=" + lang);
     return response.data;
   } catch (error) {
