@@ -47,7 +47,6 @@ const Home = () => {
   const [{ y }] = useWindowScroll();
 
   useEffect(() => {
-    console.log(data.my_titles);
     setShuffledList([...data.my_titles].sort(() => Math.random() - 0.5));
   }, [data]);
 
