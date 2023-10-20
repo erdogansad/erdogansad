@@ -9,33 +9,6 @@ import { TbWorldWww } from "react-icons/tb";
 import { useWindowScroll } from "@uidotdev/usehooks";
 import { useSelector } from "react-redux";
 
-const projects = [
-  {
-    title: "Nasa Project 1",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit suscipit, sagittis morbi taciti class eu pulvinar curabitur, malesuada magnis aptent dislobortis vulputate natoque. Class sem posuere fermentum sed vel nulla fringilla nisl taciti, suscipit eleifend dapibus luctus accumsan tristique anibh, ridiculus odio habitasse diam porta fusce nostra ante.",
-    image: "https://via.placeholder.com/1600x900",
-    github: "#",
-    web: "#",
-  },
-  {
-    title: "Nasa Project 2",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit suscipit, sagittis morbi taciti class eu pulvinar curabitur, malesuada magnis aptent dislobortis vulputate natoque. Class sem posuere fermentum sed vel nulla fringilla nisl taciti, suscipit eleifend dapibus luctus accumsan tristique anibh, ridiculus odio habitasse diam porta fusce nostra ante.",
-    image: "https://via.placeholder.com/1600x900",
-    github: "#",
-    web: "#",
-  },
-  {
-    title: "Nasa Project 3",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit suscipit, sagittis morbi taciti class eu pulvinar curabitur, malesuada magnis aptent dislobortis vulputate natoque.",
-    image: "https://via.placeholder.com/1600x900",
-    github: "#",
-    web: "#",
-  },
-];
-
 const Home = () => {
   const { data } = useSelector((state) => state.root);
   const [shuffledList, setShuffledList] = useState([]);
