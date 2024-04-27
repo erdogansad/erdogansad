@@ -1,6 +1,6 @@
 # 💫 About Me:
 
-🌱 I’m currently learning Swift & React<br>💬 Ask me about PHP, Javascript, Lua
+🌱 I’m currently learning Java<br>💬 Ask me about PHP, Javascript, Lua, React
 
 ## 🌐 Socials:
 
