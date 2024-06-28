@@ -1,5 +1,5 @@
 import React, { lazy, useEffect } from "react";
-import { Switch as Routes, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { routes } from "./routes";
 import PrivateRoute from "@components/PrivateRoute";
 import LoadingSpinner from "@components/LoadingSpinner";
@@ -61,18 +61,12 @@ const Router = () => {
     return routes.map((route) => {
       if (route.protected) {
         return (
-          <Route key={route.path} exact={route.exact === true} path={route.path}>
-            <PrivateRoute>
-              <RenderRoute route={route} />
-            </PrivateRoute>
+          <Route key={route.path} exact={`${route.exact}`} path={route.path} element={<PrivateRoute />}>
+            <Route key={route.path} exact={`${route.exact}`} path={route.path} element={<RenderRoute route={route} />} />
           </Route>
         );
       } else {
-        return (
-          <Route key={route.path} exact={route.exact === true} path={route.path}>
-            <RenderRoute route={route} />
-          </Route>
-        );
+        return <Route key={route.path} exact={`${route.exact}`} path={route.path} element={<RenderRoute route={route} />} />;
       }
     });
   };
@@ -80,9 +74,8 @@ const Router = () => {
   return (
     <Routes>
       {resolveRoutes()}
-      <Route path="*">
-        <Redirect to="/404" replaced={true} />
-      </Route>
+
+      <Route path="*" element={<Navigate to="/404" replaced={true} />} />
     </Routes>
   );
 };
