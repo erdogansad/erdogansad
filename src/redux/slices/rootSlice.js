@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { decryptData } from "@utils/tools";
 
 let initialState = {
   data: null,
@@ -16,7 +17,11 @@ export const fetchData = createAsyncThunk("root/fetchData", async (_, { rejectWi
       "en";
     if (localStorage.getItem("lang") === null) localStorage.setItem("lang", lang);
     const response = await axios.get(process.env.REACT_APP_API_URL + "/portfolio/get?lang=" + lang);
-    return response.data;
+
+    let decrypted = decryptData(response.data);
+    decrypted = JSON.parse(decrypted);
+
+    return decrypted;
   } catch (error) {
     return rejectWithValue(error.response.data);
   }
