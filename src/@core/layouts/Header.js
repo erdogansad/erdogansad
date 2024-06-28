@@ -1,5 +1,5 @@
-import { Transition } from "@headlessui/react";
-import React, { useEffect } from "react";
+import { Transition, TransitionChild } from "@headlessui/react";
+import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ScrollTo from "react-scroll-into-view";
 import { fetchData } from "../../redux/slices/rootSlice";
@@ -21,6 +21,7 @@ const Header = () => {
   return (
     <header className="hidden lg:block absolute h-full lg:h-auto w-full py-10 z-10">
       <Transition
+        as="div"
         className="container h-full mx-auto flex items-center justify-between font-arimo"
         show={show}
         enter="transition ease duration-1000 transform delay-[1250ms]"
@@ -44,18 +45,15 @@ const Header = () => {
                   }}
                   selector={`#${title.el_id}`}
                 >
-                  <button className="relative group">
-                    <span className="absolute inset-0 transition text-blue-300 duration-300 ease-out transform translate-x-0 translate-y-0 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
-                      {title.title}
-                    </span>
-                    <span className="absolute inset-0">{title.title}</span>
-                    <span>{title.title}</span>
+                  <button className="relative bg-transparent group p-2 rounded-xl transition-colors duration-100 hover:bg-blue-50 hover:text-blue-950">
+                    <span className="block w-full h-full">{title.title}</span>
+                    <div className="-z-10 absolute inset-0 w-full h-full bg-blue-900 rounded-xl transition-transform duration-200 delay-100 opacity-0 translate-x-0 translate-y-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:translate-y-1"></div>
                   </button>
                 </ScrollTo>
               );
             } else {
               return (
-                <React.Fragment key={index}>
+                <Fragment key={index}>
                   <ScrollTo
                     scrollOptions={{
                       behavior: "smooth",
@@ -64,21 +62,19 @@ const Header = () => {
                     }}
                     selector={`#${title.el_id}`}
                   >
-                    <button className="relative group">
-                      <span className="absolute inset-0 transition text-blue-300 duration-300 ease-out transform translate-x-0 translate-y-0 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
-                        {title.title}
-                      </span>
-                      <span className="absolute inset-0">{title.title}</span>
-                      <span>{title.title}</span>
+                    <button className="relative bg-transparent group p-2 rounded-xl transition-colors duration-100 hover:bg-blue-50 hover:text-blue-950">
+                      <span className="block w-full h-full">{title.title}</span>
+                      <div className="-z-10 absolute inset-0 w-full h-full bg-blue-900 rounded-xl transition-transform duration-200 delay-100 opacity-0 translate-x-0 translate-y-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:translate-y-1"></div>
                     </button>
                   </ScrollTo>
                   <div className="h-8 border-e"></div>
-                </React.Fragment>
+                </Fragment>
               );
             }
           })}
         </nav>
-        <Transition.Child
+        <TransitionChild
+          as="div"
           className="flex basis-1/3 justify-end"
           enter="transition ease duration-1000 transform delay-[2500ms]"
           enterFrom="opacity-0 translate-y-12"
@@ -87,14 +83,14 @@ const Header = () => {
           leaveFrom="opacity-100 translate-y-0"
           leaveTo="opacity-0 translate-y-12"
         >
-          <button onClick={() => changeLang()} className="relative group">
-            <span className="absolute inset-0 transition text-blue-300 duration-300 ease-out transform translate-x-0 translate-y-0 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
-              {data.langs[0].title}
-            </span>
-            <span className="absolute inset-0 text-white">{data.langs[0].title}</span>
-            <span className="text-white">{data.langs[0].title}</span>
+          <button
+            onClick={() => changeLang()}
+            className="relative bg-transparent group p-2 rounded-xl transition-colors duration-100 text-white hover:bg-blue-50 hover:text-blue-950"
+          >
+            <span className="block w-full h-full">{data.langs[0].title}</span>
+            <div className="-z-10 absolute inset-0 w-full h-full bg-blue-900 rounded-xl transition-transform duration-200 delay-100 opacity-0 translate-x-0 translate-y-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:translate-y-1"></div>
           </button>
-        </Transition.Child>
+        </TransitionChild>
       </Transition>
     </header>
   );
