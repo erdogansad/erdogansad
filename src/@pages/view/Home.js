@@ -8,6 +8,7 @@ import * as Icons from "devicons-react";
 import { TbWorldWww } from "react-icons/tb";
 import { useWindowScroll } from "@uidotdev/usehooks";
 import { useSelector } from "react-redux";
+import Button from "@components/Button";
 
 const Home = () => {
   const { data } = useSelector((state) => state.root);
@@ -100,21 +101,19 @@ const Home = () => {
                   {data.socials.map(
                     (social, index) =>
                       social.title !== "E-Mail" && (
-                        <Link key={index} to={social.url} target="_blank" rel="noopener noreferrer" className="relative px-3 py-1 lg:px-6 lg:py-2 group">
-                          <span className="absolute inset-0 w-full h-full rounded-lg transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-blue-50 group-hover:translate-x-1 group-hover:translate-y-1"></span>
-                          <span className="absolute inset-0 w-full h-full bg-blue-900 border border-blue-50 rounded-lg"></span>
-                          <div className="flex gap-1 relative items-center text-blue-50">
-                            <span>
-                              {
-                                {
-                                  linkedin: <AiFillLinkedin className="h-4 w-4 lg:h-8 lg:w-8" />,
-                                  github: <AiFillGithub className="h-4 w-4 lg:h-8 lg:w-8" />,
-                                }[social.title.toLowerCase()]
-                              }
-                            </span>
-                            <span className="font-bold font-arimo md:text-xl">{social.title}</span>
-                          </div>
-                        </Link>
+                        <Button
+                          key={index}
+                          theme="primary"
+                          to={social.url}
+                          title={social.title}
+                          ButtonIcon={
+                            {
+                              Github: AiFillGithub,
+                              Linkedin: AiFillLinkedin,
+                            }[social.title]
+                          }
+                          textSize="xl"
+                        />
                       )
                   )}
                 </div>
@@ -197,8 +196,8 @@ const Home = () => {
                         rel="noopener noreferrer"
                         className="transition-all duration-500 delay-100 group/inner -translate-x-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 w-10 h-10"
                       >
-                        <div className="absolute inset-0 w-full h-full bg-blue-900 rounded-xl transition-transform duration-300 translate-x-0 translate-y-0 group-hover/inner:translate-x-1 group-hover/inner:translate-y-1"></div>
-                        <div className="relative p-1 bg-blue-50 border border-blue-900 rounded-xl group/inner transition-color duration-200">
+                        <div className="absolute inset-0 w-full h-full bg-blue-950 rounded-lg transition-transform duration-300 translate-x-0 translate-y-0 group-hover/inner:translate-x-1.5 group-hover/inner:translate-y-1.5"></div>
+                        <div className="relative p-1 bg-blue-50 border border-blue-950 rounded-lg group/inner transition-color duration-200">
                           <AiFillGithub className="h-full w-full" />
                         </div>
                       </Link>
@@ -208,8 +207,8 @@ const Home = () => {
                         rel="noopener noreferrer"
                         className="transition-all duration-500 delay-100 group/inner translate-x-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 w-10 h-10"
                       >
-                        <div className="absolute inset-0 w-full h-full bg-blue-900 rounded-xl transition-transform duration-300 translate-x-0 translate-y-0 group-hover/inner:translate-x-1 group-hover/inner:translate-y-1"></div>
-                        <div className="relative p-1 bg-blue-50 border border-blue-900 rounded-xl group/inner transition-color duration-200">
+                        <div className="absolute inset-0 w-full h-full bg-blue-950 rounded-lg transition-transform duration-300 translate-x-0 translate-y-0 group-hover/inner:translate-x-1.5 group-hover/inner:translate-y-1.5"></div>
+                        <div className="relative p-1 bg-blue-50 border border-blue-950 rounded-lg group/inner transition-color duration-200">
                           <TbWorldWww className="h-full w-full" />
                         </div>
                       </Link>
