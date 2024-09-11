@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import background from "@assets/img/background.png";
 import { Link } from "react-router-dom";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
-import ReactTypingEffect from "react-typing-effect";
 import { Transition, TransitionChild } from "@headlessui/react";
 import * as Icons from "devicons-react";
 import { TbWorldWww } from "react-icons/tb";
@@ -12,17 +11,12 @@ import Button from "@components/Button";
 
 const Home = () => {
   const { data } = useSelector((state) => state.root);
-  const [shuffledList, setShuffledList] = useState([]);
   const [sections, setSections] = useState({
     one: false,
     two: false,
     three: false,
   });
   const [{ y }] = useWindowScroll();
-
-  useEffect(() => {
-    setShuffledList([...data.my_titles].sort(() => Math.random() - 0.5));
-  }, [data]);
 
   useEffect(() => {
     setSections((prev) => {
@@ -57,8 +51,8 @@ const Home = () => {
             >
               <img className="h-full w-full object-cover object-bottom opacity-25" src={background} alt="" />
             </TransitionChild>
-            <div className="flex flex-col items-center gap-5 lg:gap-10">
-              <div className="flex flex-col items-center gap-2 lg:gap-8">
+            <div className="flex flex-col items-center gap-5 lg:gap-6">
+              <div className="flex flex-col items-center gap-2 lg:gap-6">
                 <TransitionChild
                   enter="transition ease duration-1000 transform delay-500"
                   enterFrom="opacity-0 translate-y-12"
@@ -77,16 +71,7 @@ const Home = () => {
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 translate-y-12"
                 >
-                  <span className="text-blue-50 md:text-xl xl:text-2xl font-semibold italic cursor-default font-arimo select-none">
-                    <ReactTypingEffect
-                      text={shuffledList}
-                      staticText={data.langs[0].code === "tr" ? "I am a" : "Ben bir"}
-                      speed="50"
-                      eraseSpeed="100"
-                      typingDelay="500"
-                      eraseDelay="2500"
-                    />
-                  </span>
+                  <span className="text-blue-50 md:text-xl xl:text-2xl font-thin cursor-default font-arimo select-none">Full Stack Developer</span>
                 </TransitionChild>
               </div>
               <TransitionChild
