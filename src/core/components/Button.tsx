@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const base = "relative z-10 flex justify-center items-center p-2 rounded-lg transition-colors duration-100";
@@ -33,7 +32,19 @@ const textSizes = {
   "2xl": "text-2xl",
 };
 
-const ButtonBody = ({ theme, title, iconSize, textSize, ButtonIcon }) => {
+const ButtonBody = ({
+  theme,
+  title,
+  iconSize,
+  textSize,
+  ButtonIcon,
+}: {
+  theme: "primary" | "secondary" | "third" | "transparent";
+  title: string;
+  iconSize: 4 | 8 | 10 | 12 | 16 | 20 | 24 | 32;
+  textSize: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+  ButtonIcon: React.ComponentType<{ className?: string }>;
+}) => {
   return (
     <div className={`${base} ${themes[theme][0]}`}>
       {ButtonIcon ? (
@@ -48,20 +59,48 @@ const ButtonBody = ({ theme, title, iconSize, textSize, ButtonIcon }) => {
   );
 };
 
-const Button = ({ to = null, onClick = null, ButtonIcon = null, title, theme = "primary", iconSize = 8, textSize = "md" }) => {
-  const buttonBg = `absolute inset-0 w-full h-full rounded-lg transition-transform duration-200 translate-x-0 translate-y-0 group-hover:translate-x-1.5 group-hover:translate-y-1.5 ${themes[theme][1]}`;
+const Button = ({
+  to,
+  onClick,
+  ButtonIcon,
+  title,
+  theme,
+  iconSize,
+  textSize,
+}: {
+  to?: string | null;
+  onClick?: () => void | null;
+  ButtonIcon?: React.ComponentType<{ className?: string }>;
+  title?: string;
+  theme?: "primary" | "secondary" | "third" | "transparent";
+  iconSize?: 4 | 8 | 10 | 12 | 16 | 20 | 24 | 32;
+  textSize?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+}) => {
+  const buttonBg = `absolute inset-0 w-full h-full rounded-lg transition-transform duration-200 translate-x-0 translate-y-0 group-hover:translate-x-1.5 group-hover:translate-y-1.5 ${themes[theme as keyof typeof themes][1]}`;
 
   if (to) {
     return (
       <Link className="relative w-fit h-fit group" to={to} target="_blank" rel="noopener noreferrer">
-        <ButtonBody theme={theme} title={title} iconSize={iconSize} ButtonIcon={ButtonIcon} textSize={textSize} />
+        <ButtonBody
+          theme={theme || "primary"}
+          title={title || ""}
+          iconSize={iconSize || 8}
+          ButtonIcon={ButtonIcon || (() => null)}
+          textSize={textSize || "md"}
+        />
         <div className={buttonBg}></div>
       </Link>
     );
   } else {
     return (
       <button className="relative w-fit h-fit group" onClick={onClick}>
-        <ButtonBody theme={theme} title={title} iconSize={iconSize} ButtonIcon={ButtonIcon} textSize={textSize} />
+        <ButtonBody
+          theme={theme || "primary"}
+          title={title || ""}
+          iconSize={iconSize || 8}
+          ButtonIcon={ButtonIcon || (() => null)}
+          textSize={textSize || "md"}
+        />
         <div className={buttonBg}></div>
       </button>
     );

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import background from "@assets/img/background.png";
+import { useEffect, useState } from "react";
+import background from "@/assets/img/background.png";
 import { Link } from "react-router-dom";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { Transition, TransitionChild } from "@headlessui/react";
@@ -7,31 +7,39 @@ import * as Icons from "devicons-react";
 import { TbWorldWww } from "react-icons/tb";
 import { useWindowScroll } from "@uidotdev/usehooks";
 import { useSelector } from "react-redux";
-import Button from "@components/Button";
+import Button from "@/core/components/Button";
+import { RootState } from "@/redux/slices/rootSlice";
 
 const Home = () => {
-  const { data } = useSelector((state) => state.root);
+  const data = useSelector((state: { root: RootState }) => state.root.data);
   const [sections, setSections] = useState({
     one: false,
     two: false,
     three: false,
   });
   const [{ y }] = useWindowScroll();
+  const [yPos, setYPos] = useState<number>(0);
+
+  useEffect(() => {
+    if (y !== yPos) {
+      setYPos(y as number);
+    }
+  }, [y, yPos]);
 
   useEffect(() => {
     setSections((prev) => {
-      if (y === 0) {
+      if (yPos === 0) {
         return { ...prev, one: true };
       }
-      if (y > 550 && y < 1250) {
+      if (yPos > 550 && yPos < 1250) {
         return { ...prev, two: true };
       }
-      if (y > 1250) {
+      if (yPos > 1250) {
         return { ...prev, three: true };
       }
       return prev;
     });
-  }, [y]);
+  }, [yPos]);
 
   return (
     <main>
@@ -83,8 +91,8 @@ const Home = () => {
                 leaveTo="opacity-0 translate-y-12"
               >
                 <div className="flex flex-col lg:flex-row gap-4">
-                  {data.socials.map(
-                    (social, index) =>
+                  {data?.socials.map(
+                    (social: { title: string; url: string }, index: number) =>
                       social.title !== "E-Mail" && (
                         <Button
                           key={index}
@@ -95,7 +103,7 @@ const Home = () => {
                             {
                               Github: AiFillGithub,
                               Linkedin: AiFillLinkedin,
-                            }[social.title]
+                            }[social.title as "Github" | "Linkedin"]
                           }
                           textSize="xl"
                         />
@@ -108,16 +116,16 @@ const Home = () => {
         </div>
       </section>
 
-      <section id={data.page_titles[0].el_id} className="bg-blue-200 py-12 lg:py-44">
+      <section id={data?.page_titles[0].el_id} className="bg-blue-200 py-12 lg:py-44">
         <div className="container flex flex-col lg:flex-row gap-12 lg:gap-32">
           <div
             className={`${
               sections.two ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             } transition-all duration-1000 basis-1/2 space-y-4 lg:space-y-10`}
           >
-            <span className="text-4xl lg:text-6xl font-bold cursor-default font-oswald text-blue-950 select-none">{data.page_titles[0].title}</span>
+            <span className="text-4xl lg:text-6xl font-bold cursor-default font-oswald text-blue-950 select-none">{data?.page_titles[0].title}</span>
             <div className="space-y-5">
-              {data.about.map((about, index) => (
+              {data?.about.map((about: string, index: number) => (
                 <p key={index} className="text-justify text-blue-900 font-arimo text-sm lg:text-base leading-7 cursor-default select-none">
                   {about}
                 </p>
@@ -129,10 +137,10 @@ const Home = () => {
               sections.two ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             } transition-all duration-1000 delay-200 basis-1/2 space-y-4 lg:space-y-10`}
           >
-            <span className="text-4xl lg:text-6xl font-bold cursor-default font-oswald text-blue-950 select-none">{data.page_titles[1].title}</span>
+            <span className="text-4xl lg:text-6xl font-bold cursor-default font-oswald text-blue-950 select-none">{data?.page_titles[1].title}</span>
             <div className="flex flex-wrap gap-3 lg:gap-6 justify-center">
-              {data.skills.map((skill, index) => {
-                const Skill = Icons[skill.icon];
+              {data?.skills.map((skill: { icon: string }, index: number) => {
+                const Skill = Icons[skill.icon as keyof typeof Icons];
                 if (Skill) {
                   return (
                     <span key={index} className="w-14 h-14 lg:w-20 lg:h-20">
@@ -148,15 +156,15 @@ const Home = () => {
         </div>
       </section>
 
-      <section id={data.page_titles[2].el_id} className="bg-blue-950 py-12 lg:py-44">
+      <section id={data?.page_titles[2].el_id} className="bg-blue-950 py-12 lg:py-44">
         <div
           className={`${
             sections.three ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           } transition-all duration-1000 container space-y-4 lg:space-y-12`}
         >
-          <span className="text-4xl lg:text-6xl font-bold cursor-default font-oswald select-none text-blue-200">{data.page_titles[2].title}</span>
+          <span className="text-4xl lg:text-6xl font-bold cursor-default font-oswald select-none text-blue-200">{data?.page_titles[2].title}</span>
           <div className="grid lg:grid-cols-3 gap-8">
-            {data.projects.map((project, index) => {
+            {data?.projects.map((project: { image: string; data: string; github: string; live: string }, index: number) => {
               const projectData = JSON.parse(project.data);
               return (
                 <div

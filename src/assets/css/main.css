@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.delay-1500 {
+  transition-delay: 1500ms;
+}
+
+.delay-2000 {
+  transition-delay: 2000ms;
+}
+
+.delay-2500 {
+  transition-delay: 2500ms;
+}
+
+.delay-3000 {
+  transition-delay: 3000ms;
+}
+
+.delay-3500 {
+  transition-delay: 3500ms;
+}
+
+.delay-4000 {
+  transition-delay: 4000ms;
+}
