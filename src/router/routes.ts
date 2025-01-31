@@ -1,13 +1,6 @@
 import { lazy } from "react";
 
-interface RouteType {
-  path: string;
-  element: React.ComponentType<{ className?: string }>;
-  protected?: boolean;
-  layout: string;
-}
-
-const routes: RouteType[] = [
+const routes = [
   {
     path: "/",
     element: lazy(() => import("@/pages/view/Home")),
@@ -15,10 +8,9 @@ const routes: RouteType[] = [
   },
   {
     path: "/404",
-    element: lazy(() => import("@/pages/others/NotFound")),
+    element: lazy(() => import("@/pages/error/NotFound")),
     layout: "blank",
   },
 ];
 
-export { routes };
-export type { RouteType };
+export default routes;

@@ -9,9 +9,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: [
-      { find: "@", replacement: path.resolve(__dirname, "src/") },
-      { find: "crypto", replacement: "crypto-browserify" },
-    ],
+    alias: [{ find: "@", replacement: path.resolve(__dirname, "src/") }],
+  },
+  server: {
+    host: true,
   },
 });
