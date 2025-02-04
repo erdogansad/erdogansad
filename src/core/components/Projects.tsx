@@ -7,16 +7,16 @@ export default function ProjectsSection() {
   const sectionRef = useRef(null);
   const [scrollDistance, setScrollDistance] = useState("-40.5rem");
   const [scrollZero, setScrollZero] = useState("21.5rem");
-  const { projects } = useSelector((state: { root: RootState }) => state.root);
+  const { projects } = useSelector((state: { root: RootState }) => state.root.data);
 
   useEffect(() => {
     const updateScrollDistance = () => {
       if (window.innerWidth >= 1920) {
         setScrollDistance("-75rem");
         setScrollZero("22rem");
-      } else if (window.innerWidth >= 1650) {
-        setScrollDistance("-83.5rem");
-        setScrollZero("13.5rem");
+      } else if (window.innerWidth >= 1680) {
+        setScrollDistance("-83rem");
+        setScrollZero("14rem");
       } else if (window.innerWidth >= 1440) {
         setScrollDistance("-94rem");
         setScrollZero("11rem");
@@ -56,7 +56,7 @@ export default function ProjectsSection() {
           </div>
           <div className="relative w-full overflow-hidden">
             <motion.div className="flex gap-4" style={{ x }}>
-              {projects.map((project, index) => (
+              {projects?.map((project, index) => (
                 <div key={index} className="rounded-lg bg-slate-200 dark:bg-slate-700 p-5 space-y-3 shrink-0 transition-colors">
                   <img className="w-[40rem] rounded aspect-video object-center object-cover" src={project.image} alt="" />
                   <div>
@@ -74,7 +74,7 @@ export default function ProjectsSection() {
         <div className="container pb-16 md:pt-16 md:pb-32">
           <h2 className="font-thin text-2xl pt-12 pb-8 select-none text-slate-950 dark:text-slate-50 transition-colors">Projelerim</h2>
           <div className="flex flex-col gap-5">
-            {projects.map((project, index) => (
+            {projects?.map((project, index) => (
               <div key={index} className="rounded-lg bg-slate-200 dark:bg-slate-700 p-5 space-y-3 transition-colors">
                 <img className="w-full aspect-video object-cover object-center rounded select-none" src={project.image} alt="" />
                 <div className="text-center">
