@@ -47,8 +47,6 @@ export const fetchData = createAsyncThunk("companies/fetchData", async (_, { rej
 
     const data = await resp.json();
 
-    console.log(data);
-
     return data;
   } catch (error) {
     return rejectWithValue(error);
@@ -71,7 +69,6 @@ const companiesSlice = createSlice({
         state.data.error = null;
         state.data.whatCanIDo = action.payload.whatCanIDo;
         state.data.projects = action.payload.projects;
-        console.log(state);
       })
       .addCase(fetchData.rejected, (state, action) => {
         state.data.loading = false;
