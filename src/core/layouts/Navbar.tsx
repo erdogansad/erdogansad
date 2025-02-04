@@ -1,4 +1,5 @@
-import { RootState, toggleDarkMode } from "@/redux/slices/rootSlice";
+import { UIState, toggleDarkMode } from "@/redux/slices/uiSlice";
+
 import { useAppDispatch } from "@/redux/store";
 import { useEffect, useState } from "react";
 import { FaMoon } from "react-icons/fa";
@@ -10,7 +11,7 @@ import ScrollIntoView from "react-scroll-into-view";
 const Navbar = () => {
   const [time, setTime] = useState<string>("");
   const dispatch = useAppDispatch();
-  const { darkMode } = useSelector((state: { root: RootState }) => state.root);
+  const { darkMode } = useSelector((state: { ui: UIState }) => state.ui);
 
   useEffect(() => {
     const getTime = () => {
