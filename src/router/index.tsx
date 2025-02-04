@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import routes from "./routes";
 import LoadingSpinner from "@/core/components/LoadingSpinner";
 import { useAppDispatch } from "@/redux/store";
-import { fetchDarkMode } from "@/redux/slices/rootSlice";
+import { fetchDarkMode } from "@/redux/slices/uiSlice";
 
 interface RouteObj {
   path: string;
