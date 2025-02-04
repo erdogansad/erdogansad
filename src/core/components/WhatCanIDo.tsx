@@ -4,11 +4,11 @@ import Section from "@/core/components/Section";
 import { motion } from "framer-motion";
 
 const WhatCanIDo = () => {
-  const { whatCanIDo } = useSelector((state: { root: RootState }) => state.root);
+  const { whatCanIDo } = useSelector((state: { root: RootState }) => state.root.data);
   return (
     <Section className="bg-white dark:bg-slate-900 transition-colors duration-500" title="Neler yapabilirim?">
       <div className="space-y-10 divide-y">
-        {whatCanIDo.map((item, index) => (
+        {whatCanIDo?.map((item, index) => (
           <div key={index} className="flex flex-col-reverse md:flex-row items-center gap-5 md:gap-10 pt-10 first:pt-0">
             <div className="basis-full space-y-3 text-center md:text-start">
               <motion.h3
