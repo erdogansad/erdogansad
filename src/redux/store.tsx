@@ -2,10 +2,12 @@ import { configureStore, Tuple } from "@reduxjs/toolkit";
 import { thunk } from "redux-thunk";
 import { useDispatch } from "react-redux";
 import rootSlice from "./slices/rootSlice";
+import uiSlice from "./slices/uiSlice";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     root: rootSlice,
+    ui: uiSlice,
   },
   middleware: () => new Tuple(thunk),
 });
@@ -13,4 +15,3 @@ const store = configureStore({
 export type StoreState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch = () => useDispatch<AppDispatch>();
-export default store;
