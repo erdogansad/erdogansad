@@ -1,0 +1,52 @@
+{
+  "whatCanIDo": [
+    {
+      "id": 1,
+      "title": "Kurumsal Web Çözümleri",
+      "description": "İhtiyaca özel, güçlü ve güvenli kurumsal web uygulamaları geliştiriyor, şirketlerin dijital dönüşüm süreçlerine destek oluyorum.",
+      "image": "https://dummyimage.com/16:9x360"
+    },
+    {
+      "id": 2,
+      "title": "İşletme Yönetim Uygulamaları",
+      "description": "İşletmelerin ihtiyaçlarına yönelik, kullanıcı dostu ve ölçeklenebilir yönetim uygulamaları geliştiriyorum.",
+      "image": "https://dummyimage.com/16:9x360"
+    },
+    {
+      "id": 3,
+      "title": "Mobil Uygulamalar",
+      "description": "Android ve iOS platformları için kullanıcı dostu, hızlı ve güvenli mobil uygulamalar geliştiriyorum.",
+      "image": "https://dummyimage.com/16:9x360"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Yakında",
+      "date": "--/--/----",
+      "description": "Yakında",
+      "image": "https://dummyimage.com/16:9x360"
+    },
+    {
+      "id": 2,
+      "title": "Yakında",
+      "date": "--/--/----",
+      "description": "Yakında",
+      "image": "https://dummyimage.com/16:9x360"
+    },
+    {
+      "id": 3,
+      "title": "Yakında",
+      "date": "--/--/----",
+      "description": "Yakında",
+      "image": "https://dummyimage.com/16:9x360"
+    },
+    {
+      "id": 4,
+      "title": "Yakında",
+      "date": "--/--/----",
+      "description": "Yakında",
+      "image": "https://dummyimage.com/16:9x360"
+    }
+  ]
+}
