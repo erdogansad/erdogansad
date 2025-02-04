@@ -6,8 +6,17 @@ import { FiGithub } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import ScrollIntoView from "react-scroll-into-view";
+import { useEffect } from "react";
+import { useAppDispatch } from "@/redux/store";
+import { fetchData } from "@/redux/slices/rootSlice";
 
 const Home = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch]);
+
   return (
     <>
       <main className="h-screen flex justify-center items-center mt-10 md:block md:h-auto md:mt-28 py-60 bg-white dark:bg-slate-900 transition-colors duration-500">
