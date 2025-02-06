@@ -62,7 +62,6 @@ const companiesSlice = createSlice({
       .addCase(fetchData.pending, (state) => {
         state.data.loading = true;
         state.data.error = null;
-        console.log(state);
       })
       .addCase(fetchData.fulfilled, (state, action) => {
         state.data.loading = false;
