@@ -35,7 +35,7 @@ const initialState: RootState = {
 
 export const fetchData = createAsyncThunk("companies/fetchData", async (_, { rejectWithValue }) => {
   try {
-    const resp = await fetch("data.json", {
+    const resp = await fetch("data/data.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
