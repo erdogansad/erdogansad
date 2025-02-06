@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import routes from "./routes";
 import LoadingSpinner from "@/core/components/LoadingSpinner";
 import { useAppDispatch } from "@/redux/store";
-import { fetchDarkMode } from "@/redux/slices/uiSlice";
+import { setDarkMode } from "@/redux/slices/uiSlice";
 
 interface RouteObj {
   path: string;
@@ -20,7 +20,29 @@ const Router = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-      dispatch(fetchDarkMode());
+      const darkMode = localStorage.getItem("darkMode");
+
+      if (darkMode !== undefined && darkMode !== null) {
+        if (darkMode) {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.add("bg-slate-950");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.remove("bg-slate-950");
+        }
+      } else {
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.add("bg-slate-950");
+          localStorage.setItem("darkMode", "true");
+          dispatch(setDarkMode(true));
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.remove("bg-slate-950");
+          localStorage.setItem("darkMode", "false");
+          dispatch(setDarkMode(false));
+        }
+      }
     }, [dispatch]);
 
     if (route.layout === "default") {
