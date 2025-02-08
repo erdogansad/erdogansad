@@ -15,8 +15,8 @@ export default function ProjectsSection() {
         setScrollDistance("-75rem");
         setScrollZero("22rem");
       } else if (window.innerWidth >= 1680) {
-        setScrollDistance("-83rem");
-        setScrollZero("14rem");
+        setScrollDistance("-82.5rem");
+        setScrollZero("14.5rem");
       } else if (window.innerWidth >= 1440) {
         setScrollDistance("-94rem");
         setScrollZero("11rem");
