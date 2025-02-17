@@ -100,7 +100,7 @@ const Navbar = () => {
                   animate={{ rotate: [-180, 0] }}
                   transition={{ duration: 0.4, delay: 0.2 }}
                 >
-                  <FaMoon className="size-6 text-slate-50 hover:text-slate-400 transition-colors" />
+                  <FaMoon className="size-6 text-slate-900 hover:text-slate-400 transition-colors" />
                 </motion.div>
               ) : (
                 <motion.div
