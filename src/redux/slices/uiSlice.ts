@@ -21,8 +21,8 @@ const uiSlice = createSlice({
       localStorage.setItem("darkMode", (!state.darkMode).toString());
       console.log("darkMode", (!state.darkMode).toString());
       state.darkMode = !state.darkMode;
-      document.body.classList.toggle("dark");
-      document.body.classList.toggle("bg-slate-950");
+      document.documentElement.classList.toggle("dark");
+      document.documentElement.classList.toggle("bg-slate-950");
     },
     setLoading(state, action) {
       state.loading = action.payload;
