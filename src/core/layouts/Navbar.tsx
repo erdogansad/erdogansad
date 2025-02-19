@@ -1,4 +1,4 @@
-import { UIState, toggleDarkMode } from "@/redux/slices/uiSlice";
+import { UIState, setDarkMode } from "@/redux/slices/uiSlice";
 
 import { useAppDispatch } from "@/redux/store";
 import { useEffect, useState } from "react";
@@ -29,6 +29,10 @@ const Navbar = () => {
 
     return () => clearInterval(clock);
   }, []);
+
+  const darkModeHandler = () => {
+    dispatch(setDarkMode(!darkMode));
+  };
 
   return (
     <nav className="fixed w-full top-0 z-10 bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
@@ -91,26 +95,20 @@ const Navbar = () => {
             </motion.li>
           </motion.ul>
           <div className="flex w-full md:w-fit gap-5 items-center justify-between md:justify-normal">
-            <button onClick={() => dispatch(toggleDarkMode())} className="overflow-hidden rounded-full">
+            <button onClick={darkModeHandler} className="overflow-hidden rounded-full">
               {darkMode ? (
+                <motion.div key="sun" style={{ originX: 1 }} initial={{ rotate: 0 }} animate={{ rotate: [-180, 0] }} transition={{ duration: 0.4, delay: 0.2 }}>
+                  <IoSunny className="size-7 text-yellow-500 hover:text-yellow-700 transition-colors" />
+                </motion.div>
+              ) : (
                 <motion.div
-                  key={darkMode ? "sun" : "moon"}
+                  key="moon"
                   style={{ originX: 1 }}
                   initial={{ rotate: 0 }}
                   animate={{ rotate: [-180, 0] }}
                   transition={{ duration: 0.4, delay: 0.2 }}
                 >
                   <FaMoon className="size-6 text-slate-900 hover:text-slate-400 transition-colors" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key={darkMode ? "sun" : "moon"}
-                  style={{ originX: 1 }}
-                  initial={{ rotate: 0 }}
-                  animate={{ rotate: [-180, 0] }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                >
-                  <IoSunny className="size-7 text-yellow-500 hover:text-yellow-700 transition-colors" />
                 </motion.div>
               )}
             </button>

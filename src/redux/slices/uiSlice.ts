@@ -16,13 +16,15 @@ const uiSlice = createSlice({
   reducers: {
     setDarkMode: (state, action) => {
       state.darkMode = action.payload;
-    },
-    toggleDarkMode: (state) => {
-      localStorage.setItem("darkMode", (!state.darkMode).toString());
-      console.log("darkMode", (!state.darkMode).toString());
-      state.darkMode = !state.darkMode;
-      document.documentElement.classList.toggle("dark");
-      document.documentElement.classList.toggle("bg-slate-950");
+      localStorage.setItem("darkMode", action.payload.toString());
+
+      if (action.payload) {
+        document.documentElement.classList.add("dark");
+        document.documentElement.classList.add("bg-slate-950");
+      } else {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.remove("bg-slate-950");
+      }
     },
     setLoading(state, action) {
       state.loading = action.payload;
@@ -30,6 +32,6 @@ const uiSlice = createSlice({
   },
 });
 
-export const { setDarkMode, toggleDarkMode, setLoading } = uiSlice.actions;
+export const { setDarkMode, setLoading } = uiSlice.actions;
 export default uiSlice.reducer;
 export type { UIState };

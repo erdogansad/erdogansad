@@ -23,12 +23,14 @@ const Router = () => {
       const darkMode = localStorage.getItem("darkMode");
 
       if (darkMode !== undefined && darkMode !== null) {
-        if (darkMode) {
+        if (darkMode === "true") {
           document.documentElement.classList.add("dark");
           document.documentElement.classList.add("bg-slate-950");
+          dispatch(setDarkMode(true));
         } else {
           document.documentElement.classList.remove("dark");
           document.documentElement.classList.remove("bg-slate-950");
+          dispatch(setDarkMode(false));
         }
       } else {
         if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
