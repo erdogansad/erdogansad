@@ -58,7 +58,7 @@ export default function ProjectsSection() {
             <motion.div className="flex gap-4" style={{ x }}>
               {projects?.map((project, index) => (
                 <div key={index} className="rounded-lg bg-slate-200 dark:bg-slate-700 p-5 space-y-3 shrink-0 transition-colors">
-                  <img className="w-[40rem] rounded aspect-video object-center object-cover" src={project.image} alt="" />
+                  <img loading="lazy" className="w-[40rem] rounded aspect-video object-center object-cover" src={project.image} alt="" />
                   <div>
                     <h3 className="text-2xl select-none text-slate-950 dark:text-slate-50 transition-colors">{project.title}</h3>
                     <p className="text-sm select-none text-slate-950 dark:text-slate-50 transition-colors">{project.date}</p>

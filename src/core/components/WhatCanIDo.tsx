@@ -47,6 +47,7 @@ const WhatCanIDo = () => {
                 visible: { opacity: 1, x: 0 },
                 hidden: { opacity: 0, x: -10 },
               }}
+              loading="lazy"
               className="aspect-video object-cover object-center md:max-w-96 select-none rounded-lg"
               src={item.image}
               alt=""
