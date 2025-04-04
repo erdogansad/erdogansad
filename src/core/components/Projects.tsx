@@ -15,8 +15,8 @@ export default function ProjectsSection() {
         setScrollDistance("-75rem");
         setScrollZero("22rem");
       } else if (window.innerWidth >= 1680) {
-        setScrollDistance("-82.5rem");
-        setScrollZero("14.5rem");
+        setScrollDistance("-83rem");
+        setScrollZero("14rem");
       } else if (window.innerWidth >= 1440) {
         setScrollDistance("-94rem");
         setScrollZero("11rem");
@@ -61,7 +61,7 @@ export default function ProjectsSection() {
                   <img loading="lazy" className="w-[40rem] rounded aspect-video object-center object-cover" src={project.image} alt="" />
                   <div>
                     <h3 className="text-2xl select-none text-slate-950 dark:text-slate-50 transition-colors">{project.title}</h3>
-                    <p className="text-sm select-none text-slate-950 dark:text-slate-50 transition-colors">{project.date}</p>
+                    <p className="text-sm select-none text-slate-950 dark:text-slate-50 transition-colors">{project.date || "--/--/----"}</p>
                   </div>
                   <p className="text-sm select-none text-slate-950 dark:text-slate-50 transition-colors">{project.description}</p>
                 </div>
