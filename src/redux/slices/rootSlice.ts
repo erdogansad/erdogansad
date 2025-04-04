@@ -1,3 +1,4 @@
+import { supabase } from "@/utils/supabase";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 interface RootState {
@@ -35,19 +36,34 @@ const initialState: RootState = {
 
 export const fetchData = createAsyncThunk("companies/fetchData", async (_, { rejectWithValue }) => {
   try {
-    const resp = await fetch("data/data.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    if (!resp.ok) {
-      throw new Error("Failed to fetch data");
+    const { data: projectsData, error: projectsError } = await supabase.from("projects").select("*");
+
+    if (projectsError) {
+      throw new Error(projectsError.message);
     }
 
-    const data = await resp.json();
+    const { data: whatCanIDoData, error: whatCanIDoError } = await supabase.from("what_can_i_do").select("*");
 
-    return data;
+    if (whatCanIDoError) {
+      throw new Error(whatCanIDoError.message);
+    }
+
+    const projects = projectsData.map((project) => ({
+      id: project.id,
+      title: project.title_tr,
+      date: project.date,
+      description: project.description_tr,
+      image: project.image,
+    }));
+
+    const whatCanIDo = whatCanIDoData.map((item) => ({
+      id: item.id,
+      title: item.title_tr,
+      description: item.description_tr,
+      image: item.image,
+    }));
+
+    return { projects, whatCanIDo };
   } catch (error) {
     return rejectWithValue(error);
   }
