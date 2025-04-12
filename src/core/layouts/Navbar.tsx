@@ -17,7 +17,7 @@ const Navbar = () => {
     const getTime = () => {
       const date = new Date();
       const hours =
-        date.getUTCHours() + 3 > 23 ? `0${date.getUTCHours() - 21}` : date.getUTCHours() < 10 ? `0${date.getUTCHours() + 3}` : date.getUTCHours() + 3;
+        date.getUTCHours() + 3 > 23 ? `0${date.getUTCHours() - 21}` : date.getUTCHours() + 3 < 10 ? `0${date.getUTCHours() + 3}` : date.getUTCHours() + 3;
       const minutes = date.getUTCMinutes() < 10 ? `0${date.getUTCMinutes()}` : date.getUTCMinutes();
       const seconds = date.getUTCSeconds() < 10 ? `0${date.getUTCSeconds()}` : date.getUTCSeconds();
 
