@@ -7,6 +7,11 @@ const routes = [
     layout: "default",
   },
   {
+    path: "/status",
+    element: lazy(() => import("@/pages/error/Status")),
+    layout: "blank",
+  },
+  {
     path: "/404",
     element: lazy(() => import("@/pages/error/NotFound")),
     layout: "blank",
