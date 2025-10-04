@@ -99,7 +99,7 @@ const Home = () => {
               >
                 <Link
                   className="block border rounded-full p-3 md:p-3 cursor-pointer select-none border-slate-950 text-slate-950 hover:bg-slate-400 hover:border-slate-400 transition-colors dark:text-slate-50 dark:border-slate-50"
-                  to="mailto:its@erdogans.space"
+                  to="mailto:sad@erdogan.codes"
                 >
                   <FaEnvelope className="size-5" />
                 </Link>
