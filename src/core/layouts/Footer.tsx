@@ -25,12 +25,12 @@ const Footer = () => {
             </Link>
           </li>
           <li className="hover:text-slate-400 transition-colors">
-            <Link to="mailto:its@erdogans.space">
+            <Link to="mailto:sad@erdogan.codes">
               <FaEnvelope className="size-7" />
             </Link>
           </li>
         </ul>
-        <span className="lg:text-lg font-light text-slate-950 dark:text-slate-50 transition-colors">its@erdogans.space</span>
+        <span className="lg:text-lg font-light text-slate-950 dark:text-slate-50 transition-colors">sad@erdogan.codes</span>
       </div>
     </footer>
   );
