@@ -1,17 +1,8 @@
+import { reactRouter } from "@react-router/dev/vite";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
+import tsconfigPaths from "vite-tsconfig-paths";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: [{ find: "@", replacement: path.resolve(__dirname, "src/") }],
-  },
-  server: {
-    host: true,
-  },
+  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
 });

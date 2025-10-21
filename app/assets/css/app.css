@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Mono", monospace;
+  --color-black: #0A0A0A;
+  --color-white: #F9F9F9;
+
+  --animate-updown: updown 3.5s ease-in-out infinite;
+
+  @keyframes updown {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(2.5rem);
+    }
+  }
+}
+
+.container {
+  margin-inline: auto;
+}
+
+html,
+body {
+  @apply bg-white dark:bg-black dark:text-white dark:border-white transition-colors duration-500;
+}
+
+@custom-variant dark (&:where(.dark, .dark *))

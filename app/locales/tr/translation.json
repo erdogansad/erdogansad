@@ -1,0 +1,77 @@
+{
+  "header": {
+    "contact": "İletişim"
+  },
+  "hero": {
+    "title": {
+      "rotating_texts": ["Tasarlıyorum", "Geliştiriyorum", "Yayımlıyorum"],
+      "others": ["Dijital", "Deneyimler"]
+    },
+    "subtitle": "Sınırları zorlayan, kuralları yeniden yazan dijital çözümler. Kodun yaratıcılıkla buluştuğu yer."
+  },
+  "projects": {
+    "title": ["Seçtiğim", "Projelerim"],
+    "prefix": "Proje",
+    "list": [
+      {
+        "title": "Proje Adı",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "img": "https://placehold.co/800x600",
+        "tech": ["React", "Typescript", "TailwindCSS"],
+        "button": {
+          "text": "Siteye Git",
+          "url": "https://erdogan.codes"
+        }
+      },
+      {
+        "title": "Proje Adı",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "img": "https://placehold.co/800x600",
+        "tech": ["React", "Typescript", "TailwindCSS"],
+        "button": {
+          "text": "Siteye Git",
+          "url": "https://erdogan.codes"
+        }
+      }
+    ]
+  },
+  "skills": {
+    "title": ["Uzmanlık", "Alanlarım"],
+    "modal_title": "Felsefem",
+    "list": [
+      {
+        "title": "React",
+        "description": "Sadece tıklamalara değil, insana tepki veren etkileşimli arayüzler oluşturuyorum."
+      },
+      {
+        "title": "Typescript",
+        "description": "Anlaşılır, güvenilir ve sonsuza kadar ölçeklenebilir kodlar yazıyorum."
+      }
+    ]
+  },
+  "contact": {
+    "title": ["Birlikte", "Üretelim"],
+    "subtitle": "Sınırları zorlamaya ve olağanüstü bir şey yaratmaya hazır mısınız? Bana yazın, bir sonraki dijital projenizi konuşalım.",
+    "list": [
+      {
+        "text": "sad@erdogan.codes",
+        "url": "mailto:sad@erdogan.codes",
+        "icon": "FaRegEnvelope"
+      },
+      {
+        "text": "İzmir / Türkiye",
+        "icon": "HiOutlineLocationMarker"
+      }
+    ]
+  },
+  "social_list": [
+    {
+      "name": "Github",
+      "url": "https://github.com/erdogansad"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/erdogansad"
+    }
+  ]
+}

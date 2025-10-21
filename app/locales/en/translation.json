@@ -1,0 +1,77 @@
+{
+  "header": {
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": {
+      "rotating_texts": ["Building", "Launching", "Designing"],
+      "others": ["Digital", "Experiences"]
+    },
+    "subtitle": "Crafting innovative digital solutions that push boundaries and challenge conventions. Where code meets creativity."
+  },
+  "projects": {
+    "title": ["Selected", "Projects"],
+    "prefix": "Project",
+    "list": [
+      {
+        "title": "Project Name",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "img": "https://placehold.co/800x600",
+        "tech": ["React", "Typescript", "TailwindCSS"],
+        "button": {
+          "text": "Go Website",
+          "url": "https://erdogan.codes"
+        }
+      },
+      {
+        "title": "Project Name",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "img": "https://placehold.co/800x600",
+        "tech": ["React", "Typescript", "TailwindCSS"],
+        "button": {
+          "text": "Go Website",
+          "url": "https://erdogan.codes"
+        }
+      }
+    ]
+  },
+  "skills": {
+    "title": ["Expertise", "Areas"],
+    "modal_title": "Philosophy",
+    "list": [
+      {
+        "title": "React",
+        "description": "Building dynamic interfaces that respond to human behavior, not just clicks."
+      },
+      {
+        "title": "Typescript",
+        "description": "Code that speaks clearly, fails gracefully, and scales infinitely."
+      }
+    ]
+  },
+  "contact": {
+    "title": ["Let's Create", "Together"],
+    "subtitle": "Ready to push boundaries and create something extraordinary? Drop me a line and let's discuss your next digital venture.",
+    "list": [
+      {
+        "text": "sad@erdogan.codes",
+        "url": "mailto:sad@erdogan.codes",
+        "icon": "FaRegEnvelope"
+      },
+      {
+        "text": "Izmir / Turkiye",
+        "icon": "HiOutlineLocationMarker"
+      }
+    ]
+  },
+  "social_list": [
+    {
+      "name": "Github",
+      "url": "https://github.com/erdogansad"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/erdogansad"
+    }
+  ]
+}
