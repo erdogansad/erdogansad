@@ -12,6 +12,7 @@
   "projects": {
     "title": ["Selected", "Projects"],
     "prefix": "Project",
+    "view_project": "View Project",
     "list": [
       {
         "title": "Project Name",

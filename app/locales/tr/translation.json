@@ -12,6 +12,7 @@
   "projects": {
     "title": ["Seçtiğim", "Projelerim"],
     "prefix": "Proje",
+    "view_project": "Projeyi Görüntüle",
     "list": [
       {
         "title": "Proje Adı",
