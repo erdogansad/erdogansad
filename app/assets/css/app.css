@@ -20,13 +20,42 @@
   }
 }
 
-.container {
-  margin-inline: auto;
-}
 
 html,
 body {
-  @apply bg-white dark:bg-black dark:text-white dark:border-white transition-colors duration-500;
+  @apply bg-white dark:bg-black dark:text-white dark:border-white;
 }
 
-@custom-variant dark (&:where(.dark, .dark *))
+@custom-variant dark (&:where(.dark, .dark *));
+
+@utility container {
+  margin-inline: 0;
+  padding-inline: 1rem;
+
+  @variant sm {
+    margin-inline: 0;
+    padding-inline: 1rem;
+    width: 100%;
+  }
+
+  @variant md {
+    margin-inline: 0;
+    padding-inline: 2rem;
+    width: 100%;
+  }
+
+  @variant lg {
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  @variant xl {
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  @variant 2xl {
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+}
