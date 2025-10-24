@@ -6,6 +6,7 @@ interface ThreadsProps {
   amplitude?: number;
   distance?: number;
   enableMouseInteraction?: boolean;
+  isAnimated?: boolean; // YENİ PROP
 }
 
 const vertexShader = `
@@ -125,9 +126,23 @@ void main() {
 }
 `;
 
-const Threads: React.FC<ThreadsProps> = ({ color = [1, 1, 1], amplitude = 1, distance = 0, enableMouseInteraction = false, ...rest }) => {
+const Threads: React.FC<ThreadsProps> = ({
+  color = [1, 1, 1],
+  amplitude = 1,
+  distance = 0,
+  enableMouseInteraction = false,
+  isAnimated = true, // YENİ PROP - default true
+  ...rest
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number | undefined>(undefined);
+  const timeRef = useRef(0); // YENİ - time'ı sakla
+  const isAnimatedRef = useRef(isAnimated); // YENİ - güncel değeri tut
+
+  // isAnimated değiştiğinde ref'i güncelle
+  useEffect(() => {
+    isAnimatedRef.current = isAnimated;
+  }, [isAnimated]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -186,6 +201,7 @@ const Threads: React.FC<ThreadsProps> = ({ color = [1, 1, 1], amplitude = 1, dis
     }
 
     function update(t: number) {
+      // Mouse interaction
       if (enableMouseInteraction) {
         const smoothing = 0.05;
         currentMouse[0] += smoothing * (targetMouse[0] - currentMouse[0]);
@@ -196,7 +212,13 @@ const Threads: React.FC<ThreadsProps> = ({ color = [1, 1, 1], amplitude = 1, dis
         program.uniforms.uMouse.value[0] = 0.5;
         program.uniforms.uMouse.value[1] = 0.5;
       }
-      program.uniforms.iTime.value = t * 0.001;
+
+      // YENİ - Sadece isAnimated true ise time'ı güncelle
+      if (isAnimatedRef.current) {
+        timeRef.current = t * 0.001;
+      }
+      // time'ı her durumda uniform'a ata (dursun ya da aksın)
+      program.uniforms.iTime.value = timeRef.current;
 
       renderer.render({ scene: mesh });
       animationFrameId.current = requestAnimationFrame(update);
@@ -214,7 +236,7 @@ const Threads: React.FC<ThreadsProps> = ({ color = [1, 1, 1], amplitude = 1, dis
       if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [color, amplitude, distance, enableMouseInteraction]);
+  }, [color, amplitude, distance, enableMouseInteraction]); // isAnimated dependency'e eklenmedi
 
   return <div ref={containerRef} className="w-full h-full relative" {...rest} />;
 };

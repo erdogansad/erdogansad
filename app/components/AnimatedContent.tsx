@@ -18,6 +18,7 @@ interface AnimatedContentProps {
   threshold?: number;
   delay?: number;
   onComplete?: () => void;
+  isAnimated?: boolean; // YENİ PROP
 }
 
 const AnimatedContent: React.FC<AnimatedContentProps> = ({
@@ -34,6 +35,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
   threshold = 0.1,
   delay = 0,
   onComplete,
+  isAnimated = true, // YENİ PROP - default true
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -45,33 +47,56 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     const offset = reverse ? -distance : distance;
     const startPct = (1 - threshold) * 100;
 
-    gsap.set(el, {
-      [axis]: offset,
-      scale,
-      opacity: animateOpacity ? initialOpacity : 1,
-    });
+    if (isAnimated) {
+      // Animasyonlu mod - orijinal davranış
+      gsap.set(el, {
+        [axis]: offset,
+        scale,
+        opacity: animateOpacity ? initialOpacity : 1,
+      });
 
-    gsap.to(el, {
-      [axis]: 0,
-      scale: 1,
-      opacity: 1,
-      duration,
-      ease,
-      delay,
-      onComplete,
-      scrollTrigger: {
-        trigger: el,
-        start: `top ${startPct}%`,
-        toggleActions: "play none none none",
-        once: true,
-      },
-    });
+      gsap.to(el, {
+        [axis]: 0,
+        scale: 1,
+        opacity: 1,
+        duration,
+        ease,
+        delay,
+        onComplete,
+        scrollTrigger: {
+          trigger: el,
+          start: `top ${startPct}%`,
+          toggleActions: "play none none none",
+          once: true,
+        },
+      });
+    } else {
+      // Animasyonsuz mod - direkt final state'e geç
+      gsap.set(el, {
+        [axis]: 0,
+        scale: 1,
+        opacity: 1,
+      });
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
       gsap.killTweensOf(el);
     };
-  }, [distance, direction, reverse, duration, ease, initialOpacity, animateOpacity, scale, threshold, delay, onComplete]);
+  }, [
+    distance,
+    direction,
+    reverse,
+    duration,
+    ease,
+    initialOpacity,
+    animateOpacity,
+    scale,
+    threshold,
+    delay,
+    onComplete,
+    isAnimated, // YENİ dependency
+  ]);
 
   return (
     <div ref={ref} className={className}>

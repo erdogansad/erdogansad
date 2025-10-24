@@ -31,6 +31,7 @@ export interface RotatingTextProps
   mainClassName?: string;
   splitLevelClassName?: string;
   elementLevelClassName?: string;
+  isAnimated?: boolean; // YENİ PROP
 }
 
 const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
@@ -53,6 +54,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
       mainClassName,
       splitLevelClassName,
       elementLevelClassName,
+      isAnimated = true, // YENİ PROP - default true
       ...rest
     },
     ref
@@ -97,6 +99,9 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
 
     const getStaggerDelay = useCallback(
       (index: number, totalChars: number): number => {
+        // YENİ - isAnimated false ise stagger yok
+        if (!isAnimated) return 0;
+
         const total = totalChars;
         if (staggerFrom === "first") return index * staggerDuration;
         if (staggerFrom === "last") return (total - 1 - index) * staggerDuration;
@@ -110,7 +115,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
         }
         return Math.abs((staggerFrom as number) - index) * staggerDuration;
       },
-      [staggerFrom, staggerDuration]
+      [staggerFrom, staggerDuration, isAnimated] // YENİ dependency
     );
 
     const handleIndexChange = useCallback(
@@ -168,14 +173,28 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
       return () => clearInterval(intervalId);
     }, [next, rotationInterval, auto]);
 
+    // YENİ - Animasyonsuz mod için props
+    const finalInitial = isAnimated ? initial : false;
+    const finalAnimate = isAnimated ? animate : { y: 0, opacity: 1 };
+    const finalExit = isAnimated ? exit : { y: 0, opacity: 1 };
+    const finalTransition = isAnimated ? transition : { duration: 0 };
+
     return (
-      <motion.span className={cn("flex flex-wrap whitespace-pre-wrap relative", mainClassName)} {...rest} layout transition={transition}>
+      <motion.span
+        className={cn("flex flex-wrap whitespace-pre-wrap relative", mainClassName)}
+        {...rest}
+        layout={isAnimated ? true : false} // YENİ - layout animasyonunu da kontrol et
+        transition={finalTransition}
+      >
         <span className="sr-only">{texts[currentTextIndex]}</span>
-        <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
+        <AnimatePresence
+          mode={animatePresenceMode}
+          initial={animatePresenceInitial && isAnimated} // YENİ
+        >
           <motion.span
             key={currentTextIndex}
             className={cn(splitBy === "lines" ? "flex flex-col w-full" : "flex flex-wrap whitespace-pre-wrap relative")}
-            layout
+            layout={isAnimated ? true : false} // YENİ
             aria-hidden="true"
           >
             {elements.map((wordObj, wordIndex, array) => {
@@ -185,11 +204,11 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
                   {wordObj.characters.map((char, charIndex) => (
                     <motion.span
                       key={charIndex}
-                      initial={initial}
-                      animate={animate}
-                      exit={exit}
+                      initial={finalInitial}
+                      animate={finalAnimate}
+                      exit={finalExit}
                       transition={{
-                        ...transition,
+                        ...finalTransition,
                         delay: getStaggerDelay(
                           previousCharsCount + charIndex,
                           array.reduce((sum, word) => sum + word.characters.length, 0)

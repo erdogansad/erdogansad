@@ -21,6 +21,7 @@ export interface SplitTextProps {
   textAlign?: React.CSSProperties["textAlign"];
   startDelay?: number;
   onLetterAnimationComplete?: () => void;
+  isAnimated?: boolean; // YENİ PROP
 }
 
 const SplitText: React.FC<SplitTextProps> = ({
@@ -38,6 +39,7 @@ const SplitText: React.FC<SplitTextProps> = ({
   textAlign = "center",
   startDelay = 0,
   onLetterAnimationComplete,
+  isAnimated = true, // YENİ PROP - default true
 }) => {
   const ref = useRef<HTMLParagraphElement>(null);
   const animationCompletedRef = useRef(false);
@@ -65,6 +67,15 @@ const SplitText: React.FC<SplitTextProps> = ({
           el._rbsplitInstance.revert();
         } catch (_) {}
         el._rbsplitInstance = undefined;
+      }
+
+      // YENİ - Animasyon kapalıysa direkt visible yap
+      if (!isAnimated) {
+        gsap.set(el, { ...to });
+        if (onLetterAnimationComplete) {
+          onLetterAnimationComplete();
+        }
+        return;
       }
 
       const startPct = (1 - threshold) * 100;
@@ -140,6 +151,7 @@ const SplitText: React.FC<SplitTextProps> = ({
         rootMargin,
         fontsLoaded,
         onLetterAnimationComplete,
+        isAnimated, // YENİ dependency
       ],
       scope: ref,
     }

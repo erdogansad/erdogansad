@@ -14,6 +14,7 @@ interface ParticlesProps {
   cameraDistance?: number;
   disableRotation?: boolean;
   className?: string;
+  isAnimated?: boolean; // YENİ PROP
 }
 
 const defaultColors: string[] = ["#ffffff", "#ffffff", "#ffffff"];
@@ -112,9 +113,17 @@ const Particles: React.FC<ParticlesProps> = ({
   cameraDistance = 20,
   disableRotation = false,
   className,
+  isAnimated = true, // YENİ PROP - default true
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const elapsedRef = useRef(0); // YENİ - elapsed'i sakla
+  const isAnimatedRef = useRef(isAnimated); // YENİ - güncel değeri tut
+
+  // isAnimated değiştiğinde ref'i güncelle
+  useEffect(() => {
+    isAnimatedRef.current = isAnimated;
+  }, [isAnimated]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -193,15 +202,19 @@ const Particles: React.FC<ParticlesProps> = ({
 
     let animationFrameId: number;
     let lastTime = performance.now();
-    let elapsed = 0;
 
     const update = (t: number) => {
       animationFrameId = requestAnimationFrame(update);
       const delta = t - lastTime;
       lastTime = t;
-      elapsed += delta * speed;
 
-      program.uniforms.uTime.value = elapsed * 0.001;
+      // YENİ - Sadece isAnimated true ise elapsed'i güncelle
+      if (isAnimatedRef.current) {
+        elapsedRef.current += delta * speed;
+      }
+
+      // Her durumda uniform'a ata
+      program.uniforms.uTime.value = elapsedRef.current * 0.001;
 
       if (moveParticlesOnHover) {
         particles.position.x = -mouseRef.current.x * particleHoverFactor;
@@ -211,9 +224,10 @@ const Particles: React.FC<ParticlesProps> = ({
         particles.position.y = 0;
       }
 
-      if (!disableRotation) {
-        particles.rotation.x = Math.sin(elapsed * 0.0002) * 0.1;
-        particles.rotation.y = Math.cos(elapsed * 0.0005) * 0.15;
+      // YENİ - Rotation da isAnimated'e bağlı
+      if (!disableRotation && isAnimatedRef.current) {
+        particles.rotation.x = Math.sin(elapsedRef.current * 0.0002) * 0.1;
+        particles.rotation.y = Math.cos(elapsedRef.current * 0.0005) * 0.15;
         particles.rotation.z += 0.01 * speed;
       }
 
@@ -243,6 +257,7 @@ const Particles: React.FC<ParticlesProps> = ({
     sizeRandomness,
     cameraDistance,
     disableRotation,
+    // isAnimated dependency'e eklenmedi - sadece ref üzerinden kontrol
   ]);
 
   return <div ref={containerRef} className={`relative w-full h-full ${className}`} />;
