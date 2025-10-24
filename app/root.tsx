@@ -4,11 +4,11 @@ import type { Route } from "./+types/root";
 import "./i18n";
 import "./assets/css/app.css";
 import { useTranslation } from "react-i18next";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { createStore } from "./redux/store";
 import { RefProvider } from "./context/ContextRef";
-import type { LoaderFunctionArgs } from "react-router";
-import { CookiesProvider } from "react-cookie";
+import LoadingSpinner from "./components/LoadingSpinner";
+import LoadingWrapper from "./components/LoadingWrapper";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -23,19 +23,11 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  const cookieHeader = request.headers.get("Cookie");
-  const theme = cookieHeader?.match(/theme=(light|dark|system)/)?.[1] || "system";
-
-  return { theme };
-}
-
 export function Layout({ children }: { children: React.ReactNode }) {
   const { i18n } = useTranslation();
-  const { theme } = useLoaderData<typeof loader>() || { theme: "system" };
 
   return (
-    <html lang={i18n.language} className={theme === "dark" ? "dark" : ""}>
+    <html lang={i18n.language}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,14 +47,14 @@ export default function App() {
   const store = createStore();
 
   return (
-    <Suspense fallback="loading">
-      <CookiesProvider defaultSetOptions={{ path: "/" }}>
-        <Provider store={store}>
-          <RefProvider>
+    <Suspense fallback={<LoadingSpinner />}>
+      <Provider store={store}>
+        <RefProvider>
+          <LoadingWrapper>
             <Outlet />
-          </RefProvider>
-        </Provider>
-      </CookiesProvider>
+          </LoadingWrapper>
+        </RefProvider>
+      </Provider>
     </Suspense>
   );
 }

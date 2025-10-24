@@ -1,6 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams, useLocation } from "react-router";
 import { US, TR } from "country-flag-icons/react/3x2";
+import { useSelector } from "react-redux";
+import type { RootState } from "~/redux/store";
+import clsx from "clsx";
 
 const routeMap = {
   "": { tr: "", en: "" },
@@ -20,6 +23,7 @@ const LanguageSwitcher = () => {
   const { lang } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const { hwSupported } = useSelector((state: RootState) => state.root);
 
   const changeLanguage = (newLang: "tr" | "en") => {
     const currentLang = lang as "tr" | "en";
@@ -43,26 +47,27 @@ const LanguageSwitcher = () => {
     }
   };
 
+  const Button = ({ children, title, ariaLabel, onClick }: { children: React.ReactNode; title: string; ariaLabel: string; onClick: () => void }) => (
+    <button
+      onClick={onClick}
+      className={clsx("text-2xl hover:opacity-70 cursor-pointer", hwSupported && "scale-110 hover:scale-105 transition-all duration-300")}
+      title={title}
+      aria-label={ariaLabel}
+    >
+      {children}
+    </button>
+  );
+
   return (
     <div className="flex gap-3 items-center">
       {i18n.language === "en" ? (
-        <button
-          onClick={() => changeLanguage("tr")}
-          className="text-2xl transition-all scale-110 hover:opacity-70 hover:scale-105 cursor-pointer"
-          title="Türkçe"
-          aria-label="Türkçe"
-        >
+        <Button onClick={() => changeLanguage("tr")} title="Türkçe" ariaLabel="Türkçe">
           <TR title="Türkçe" className="w-8" />
-        </button>
+        </Button>
       ) : (
-        <button
-          onClick={() => changeLanguage("en")}
-          className="text-2xl transition-all scale-110 hover:opacity-70 hover:scale-105 cursor-pointer"
-          title="English"
-          aria-label="English"
-        >
+        <Button onClick={() => changeLanguage("en")} title="English" ariaLabel="English">
           <US title="English" className="w-8" />
-        </button>
+        </Button>
       )}
     </div>
   );

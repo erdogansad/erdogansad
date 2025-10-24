@@ -5,8 +5,12 @@ import AnimatedContent from "~/components/AnimatedContent";
 import SplitText from "~/components/SplitText";
 import Icon from "~/components/Icon";
 import { useSharedRef } from "~/context/ContextRef";
+import { useSelector } from "react-redux";
+import type { RootState } from "~/redux/store";
+import Button from "~/components/Button";
 
 const Contact = () => {
+  const { hwSupported } = useSelector((state: RootState) => state.root);
   const { contactRef } = useSharedRef();
   const { t } = useTranslation();
 
@@ -28,6 +32,7 @@ const Contact = () => {
             scale={1}
             threshold={0.2}
             delay={0}
+            isAnimated={hwSupported}
           >
             <span>{t("contact.title.0")}</span>
           </AnimatedContent>
@@ -42,6 +47,7 @@ const Contact = () => {
             scale={1}
             threshold={0.2}
             delay={0.1}
+            isAnimated={hwSupported}
           >
             <span className="block text-sky-500">{t("contact.title.1")}</span>
           </AnimatedContent>
@@ -59,6 +65,7 @@ const Contact = () => {
           rootMargin="-100px"
           textAlign="start"
           startDelay={0.3}
+          isAnimated={hwSupported}
         />
       </div>
       <div className="basis-1/3 space-y-8">
@@ -76,6 +83,7 @@ const Contact = () => {
                 scale={1}
                 threshold={0.2}
                 delay={0}
+                isAnimated={hwSupported}
               >
                 {contact.url ? (
                   <NavLink to={contact.url} className="flex items-center gap-2 group">
@@ -113,20 +121,11 @@ const Contact = () => {
                 scale={1}
                 threshold={0.2}
                 delay={0.1 * idx}
+                isAnimated={hwSupported}
               >
-                <NavLink
-                  to={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={clsx(
-                    "block px-8 py-3 border text-sm uppercase transition-colors duration-300",
-                    idx === 0
-                      ? "border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white dark:hover:text-black"
-                      : "hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
-                  )}
-                >
+                <Button to={social.url} theme={idx % 2 === 0 ? "primary" : "secondary"}>
                   {social.name}
-                </NavLink>
+                </Button>
               </AnimatedContent>
             </li>
           ))}
