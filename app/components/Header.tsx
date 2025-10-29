@@ -12,9 +12,9 @@ import clsx from "clsx";
 import runningMan from "~/assets/img/running.gif";
 import runningManSingle from "~/assets/img/running_single.png";
 
-const MotionDiv = ({ key, hwSupported, children }: { key: string; hwSupported: boolean; children: React.ReactNode }) => {
+const MotionDiv = ({ hwSupported, children }: { hwSupported: boolean; children: React.ReactNode }) => {
   return hwSupported ? (
-    <motion.div key={key} style={{ originX: 1.5 }} initial={{ rotate: 0 }} animate={{ rotate: [-180, 0] }} transition={{ duration: 0.4, delay: 0 }}>
+    <motion.div style={{ originX: 1.5 }} initial={{ rotate: 0 }} animate={{ rotate: [-180, 0] }} transition={{ duration: 0.4, delay: 0 }}>
       {children}
     </motion.div>
   ) : (
