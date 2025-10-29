@@ -16,8 +16,8 @@
       {
         "title": "Kasa Cepte",
         "description": "Kasa Cepte is a mobile application that simplifies users' financial transactions. It allows tracking of income and expenses, categorization, and generating reports for 1 month, 3 months, 6 months, and yearly periods.",
-        "img": "/assets/img/projects/kasa_cepte.jpg",
-        "img_front": "/assets/img/projects/kasa_cepte_front.png",
+        "img": "/assets/img/projects/kasa_cepte_en.jpg",
+        "img_front": "/assets/img/projects/kasa_cepte_front_en.png",
         "tech": ["React Native", "Typescript", "Styled Components", "Redux", "SQLite"],
         "buttons": [
           {
