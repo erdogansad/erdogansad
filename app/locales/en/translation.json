@@ -12,27 +12,23 @@
   "projects": {
     "title": ["Selected", "Projects"],
     "prefix": "Project",
-    "view_project": "View Project",
     "list": [
       {
-        "title": "Project Name",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "img": "https://placehold.co/800x600",
-        "tech": ["React", "Typescript", "TailwindCSS"],
-        "button": {
-          "text": "Go Website",
-          "url": "https://erdogan.codes"
-        }
-      },
-      {
-        "title": "Project Name",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "img": "https://placehold.co/800x600",
-        "tech": ["React", "Typescript", "TailwindCSS"],
-        "button": {
-          "text": "Go Website",
-          "url": "https://erdogan.codes"
-        }
+        "title": "Kasa Cepte",
+        "description": "Kasa Cepte is a mobile application that simplifies users' financial transactions. It allows tracking of income and expenses, categorization, and generating reports for 1 month, 3 months, 6 months, and yearly periods.",
+        "img": "app/assets/img/projects/kasa_cepte.jpg",
+        "img_front": "app/assets/img/projects/kasa_cepte_front.png",
+        "tech": ["React Native", "Typescript", "Styled Components", "Redux", "SQLite"],
+        "buttons": [
+          {
+            "text": "Go to Site",
+            "url": "https://kasacepte.erdogan.codes"
+          },
+          {
+            "text": "App Store",
+            "url": "https://apple.co/3Li4AKc"
+          }
+        ]
       }
     ]
   },
@@ -41,12 +37,36 @@
     "modal_title": "Philosophy",
     "list": [
       {
+        "title": "Typescript",
+        "description": "Code that speaks clearly, fails gracefully, and scales infinitely."
+      },
+      {
+        "title": "Node.js",
+        "description": "Building fast and scalable server-side applications."
+      },
+      {
         "title": "React",
         "description": "Building dynamic interfaces that respond to human behavior, not just clicks."
       },
       {
-        "title": "Typescript",
-        "description": "Code that speaks clearly, fails gracefully, and scales infinitely."
+        "title": "React Native",
+        "description": "Combining mobile experiences with performance and user-centric design."
+      },
+      {
+        "title": "Firebase",
+        "description": "Providing real-time database and authentication solutions."
+      },
+      {
+        "title": "Supabase",
+        "description": "Providing PostgreSQL-based, open-source backend solutions."
+      },
+      {
+        "title": "Tailwind CSS",
+        "description": "Providing modern, utility-first CSS solutions for rapid and flexible designs."
+      },
+      {
+        "title": "Bootstrap",
+        "description": "Building responsive and mobile-first web projects."
       }
     ]
   },

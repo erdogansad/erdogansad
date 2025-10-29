@@ -12,27 +12,23 @@
   "projects": {
     "title": ["Seçtiğim", "Projelerim"],
     "prefix": "Proje",
-    "view_project": "Projeyi Görüntüle",
     "list": [
       {
-        "title": "Proje Adı",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "img": "https://placehold.co/800x600",
-        "tech": ["React", "Typescript", "TailwindCSS"],
-        "button": {
-          "text": "Siteye Git",
-          "url": "https://erdogan.codes"
-        }
-      },
-      {
-        "title": "Proje Adı",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "img": "https://placehold.co/800x600",
-        "tech": ["React", "Typescript", "TailwindCSS"],
-        "button": {
-          "text": "Siteye Git",
-          "url": "https://erdogan.codes"
-        }
+        "title": "Kasa Cepte",
+        "description": "Kasa Cepte, kullanıcıların finansal işlemlerini kolaylaştıran bir mobil uygulamadır. Gelir ve gider takibi yapabilir, kategorilendirilebilir; 1 aylık, 3 aylık, 6 aylık ve yıllık raporlar oluşturabilir.",
+        "img": "app/assets/img/projects/kasa_cepte.jpg",
+        "img_front": "app/assets/img/projects/kasa_cepte_front.png",
+        "tech": ["React Native", "Typescript", "Styled Components", "Redux", "SQLite"],
+        "buttons": [
+          {
+            "text": "Siteye Git",
+            "url": "https://kasacepte.erdogan.codes"
+          },
+          {
+            "text": "App Store",
+            "url": "https://apple.co/3Li4AKc"
+          }
+        ]
       }
     ]
   },
@@ -41,12 +37,36 @@
     "modal_title": "Felsefem",
     "list": [
       {
+        "title": "TYPESCRIPT",
+        "description": "Anlaşılır, güvenilir ve sonsuza kadar ölçeklenebilir kodlar yazıyorum."
+      },
+      {
+        "title": "Node.js",
+        "description": "Hızlı ve ölçeklenebilir sunucu taraflı uygulamalar geliştiriyorum."
+      },
+      {
         "title": "React",
         "description": "Sadece tıklamalara değil, insana tepki veren etkileşimli arayüzler oluşturuyorum."
       },
       {
-        "title": "Typescript",
-        "description": "Anlaşılır, güvenilir ve sonsuza kadar ölçeklenebilir kodlar yazıyorum."
+        "title": "REACT NATIVE",
+        "description": "Mobil deneyimleri, performans ve kullanıcı odaklı tasarımla birleştiriyorum."
+      },
+      {
+        "title": "FIREBASE",
+        "description": "Gerçek zamanlı veritabanı ve kimlik doğrulama çözümleri sunuyorum."
+      },
+      {
+        "title": "Supabase",
+        "description": "PostgreSQL tabanlı, açık kaynaklı backend çözümleri sağlıyorum."
+      },
+      {
+        "title": "TAILWINDCSS",
+        "description": "Hızlı ve esnek tasarımlar için modern, sınıf tabanlı CSS çözümleri sunuyorum."
+      },
+      {
+        "title": "Bootstrap",
+        "description": "Duyarlı ve mobil öncelikli web projeleri geliştiriyorum."
       }
     ]
   },
@@ -67,11 +87,11 @@
   },
   "social_list": [
     {
-      "name": "Github",
+      "name": "GITHUB",
       "url": "https://github.com/erdogansad"
     },
     {
-      "name": "LinkedIn",
+      "name": "LINKEDIN",
       "url": "https://linkedin.com/in/erdogansad"
     }
   ]
