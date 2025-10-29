@@ -48,7 +48,6 @@ const Projects = () => {
         {(t("projects.list", { returnObjects: true }) as any[]).map((project, idx) => (
           <div key={idx} className={clsx("flex flex-col gap-5 lg:gap-10 items-center justify-between", idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse")}>
             <div className={clsx("relative group overflow-hidden", hwSupported && "transition-transform duration-500 hover:scale-[102%]")}>
-              <div className={clsx("absolute h-full w-full z-10", hwSupported && "group-hover:bg-sky-700/40 transition-colors duration-500")} />
               <AnimatedContent
                 distance={100}
                 direction="horizontal"
@@ -62,14 +61,20 @@ const Projects = () => {
                 delay={0.1}
                 isAnimated={hwSupported}
               >
-                <img className={clsx("w-[94rem]", hwSupported && "transition-transform duration-500 group-hover:scale-[115%]")} src={project.img} alt="" />
-                <ul className="absolute w-full lg:start-4 bottom-4 flex flex-wrap gap-2 items-center justify-center lg:justify-start z-20">
-                  {project.tech.map((tech: string, techIdx: number) => (
-                    <li key={techIdx} className="dark:bg-black/70 bg-white/70 px-2 py-1.5 text-xs lg:text-sm border border-sky-500">
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
+                <div className="relative">
+                  <img className={clsx("w-[72rem]", hwSupported && "transition-transform duration-500 group-hover:scale-[105%]")} src={project.img} alt="" />
+                  <div className="absolute flex justify-center items-center top-0 left-0 w-full h-full z-20">
+                    <div className={clsx("absolute h-full w-full group-hover:bg-sky-950/70", hwSupported && " transition-colors duration-500")} />
+                    <img className={clsx("w-auto h-3/4 z-10")} src={project.img_front} alt="" />
+                  </div>
+                  <ul className="absolute w-full lg:start-4 bottom-4 flex flex-wrap gap-2 items-center justify-center lg:justify-start z-20">
+                    {project.tech.map((tech: string, techIdx: number) => (
+                      <li key={techIdx} className="dark:bg-black/70 bg-white/70 px-2 py-1.5 text-xs lg:text-sm border border-sky-500">
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </AnimatedContent>
             </div>
             <div className="lg:w-2/3 space-y-4">
@@ -123,42 +128,27 @@ const Projects = () => {
                 isAnimated={hwSupported}
               />
               <ul className="flex gap-4 justify-center lg:justify-start">
-                <li>
-                  <AnimatedContent
-                    distance={100}
-                    direction="vertical"
-                    reverse={false}
-                    duration={1.2}
-                    ease="power3.out"
-                    initialOpacity={0}
-                    animateOpacity
-                    scale={1}
-                    threshold={0.2}
-                    delay={0.45}
-                    isAnimated={hwSupported}
-                  >
-                    <Button>{t("projects.view_project")}</Button>
-                  </AnimatedContent>
-                </li>
-                <li>
-                  <AnimatedContent
-                    distance={100}
-                    direction="vertical"
-                    reverse={false}
-                    duration={1.2}
-                    ease="power3.out"
-                    initialOpacity={0}
-                    animateOpacity
-                    scale={1}
-                    threshold={0.2}
-                    delay={0.6}
-                    isAnimated={hwSupported}
-                  >
-                    <Button theme="secondary" to={project.button.url}>
-                      {project.button.text}
-                    </Button>
-                  </AnimatedContent>
-                </li>
+                {project.buttons.map((button: { text: string; url: string }, buttonIdx: number) => (
+                  <li key={buttonIdx}>
+                    <AnimatedContent
+                      distance={100}
+                      direction="vertical"
+                      reverse={false}
+                      duration={1.2}
+                      ease="power3.out"
+                      initialOpacity={0}
+                      animateOpacity
+                      scale={1}
+                      threshold={0.2}
+                      delay={0.45 + buttonIdx * 0.15}
+                      isAnimated={hwSupported}
+                    >
+                      <Button theme={buttonIdx === 0 ? "primary" : "secondary"} to={button.url}>
+                        {button.text}
+                      </Button>
+                    </AnimatedContent>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
